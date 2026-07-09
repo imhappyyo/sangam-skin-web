@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "esModuleInterop": true,
+    "outDir": "dist",
+    "rootDir": "../../../sangam-skin",
+    "skipLibCheck": true,
+    "strict": false,
+    "ignoreDeprecations": "6.0"
+  },
+  "include": [
+    "../../../sangam-skin/src/types.ts",
+    "../../../sangam-skin/src/data/products/**/*.ts",
+    "../../../sangam-skin/src/data/ingredients.ts",
+    "../../../sangam-skin/src/data/compatibility.ts",
+    "../../../sangam-skin/src/data/quiz.ts",
+    "../../../sangam-skin/src/i18n/content/registry.ts",
+    "../../../sangam-skin/src/i18n/content/ru.ts",
+    "../../../sangam-skin/src/i18n/locales/ru.ts",
+    "../../../sangam-skin/src/i18n/registry.ts"
+  ]
+}

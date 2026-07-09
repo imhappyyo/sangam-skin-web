@@ -1,0 +1,27 @@
+/* Sangam Skin — about page. */
+.about { padding: 56px 0 100px; }
+.about__hero { max-width: 640px; margin-bottom: 64px; }
+.about__hero h1 { font-size: 42px; margin-top: 12px; letter-spacing: -0.6px; }
+.about__lede { font-size: 17px; color: var(--ink-soft); margin-top: 18px; line-height: 1.6; }
+
+.about__body { max-width: 760px; }
+.about__block { margin-bottom: 56px; }
+.about__block h2 { font-size: 24px; margin-bottom: 18px; }
+.about__block p { font-size: 15.5px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+
+.about__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 8px; }
+.about__grid h3 { font-size: 16px; color: var(--green); margin-bottom: 8px; }
+.about__grid p { font-size: 13.5px; margin-bottom: 0; }
+
+.about__disclaimer {
+  background: var(--cream); border-radius: var(--radius-lg); padding: 36px;
+  scroll-margin-top: 100px;
+}
+.about__disclaimer h2 { font-size: 19px; }
+
+.about__cta { display: flex; gap: 16px; flex-wrap: wrap; }
+
+@media (max-width: 760px) {
+  .about__hero h1 { font-size: 30px; }
+  .about__grid { grid-template-columns: 1fr; gap: 24px; }
+}

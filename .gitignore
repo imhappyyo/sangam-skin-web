@@ -1,0 +1,4 @@
+# regeneration build artifacts — see data/_build/README (data/*.js are committed, dist/ is not)
+data/_build/dist/
+
+.DS_Store

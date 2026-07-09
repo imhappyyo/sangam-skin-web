@@ -1,0 +1,89 @@
+/* Sangam Skin — site chrome (header/footer) + shared page patterns. */
+
+/* ---------- header ---------- */
+.header {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(250, 244, 237, 0.88);
+  backdrop-filter: blur(10px) saturate(1.2);
+  border-bottom: 1px solid var(--line);
+}
+.header__inner {
+  display: flex; align-items: center; justify-content: space-between;
+  height: 84px; gap: 32px;
+}
+.header__brand {
+  display: flex; align-items: center; gap: 10px;
+  font-family: var(--font-serif); font-weight: 700; font-size: 20px; color: var(--green);
+  flex-shrink: 0;
+}
+.header__brand em { font-style: normal; color: var(--accent); }
+.header__nav { display: flex; align-items: center; gap: 36px; flex: 1; justify-content: center; }
+.nav__link {
+  font-size: 14.5px; font-weight: 500; color: var(--ink-soft);
+  position: relative; padding: 6px 0; transition: color 0.15s ease;
+}
+.nav__link:hover, .nav__link.is-active { color: var(--green); }
+.nav__link.is-active::after {
+  content: ''; position: absolute; left: 0; right: 0; bottom: -3px; height: 2px;
+  background: var(--gold); border-radius: 2px;
+}
+.header__actions { display: flex; align-items: center; gap: 18px; flex-shrink: 0; }
+.lang-switch { display: flex; border: 1px solid var(--line-mid); border-radius: var(--radius-full); padding: 3px; gap: 2px; }
+.lang-switch button {
+  border: none; background: transparent; border-radius: var(--radius-full);
+  width: 34px; height: 28px; font-size: 12px; font-weight: 700; color: var(--ink-faint);
+  letter-spacing: 0.4px;
+}
+.lang-switch button.is-active { background: var(--green); color: #fff; }
+.header__burger { display: none; flex-direction: column; gap: 4px; background: none; border: none; padding: 8px; }
+.header__burger span { width: 20px; height: 2px; background: var(--ink); border-radius: 2px; }
+.header__mobile-nav { display: none; flex-direction: column; padding: 8px 20px 20px; gap: 4px; }
+.header__mobile-nav .nav__link { padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 16px; }
+.header__mobile-nav.is-open { display: flex; }
+
+@media (max-width: 980px) {
+  .header__nav { display: none; }
+  .header__burger { display: flex; }
+  .header__actions .btn { display: none; }
+}
+
+/* ---------- footer ---------- */
+.footer { background: var(--green-dark); color: #EDE7DC; margin-top: 120px; }
+.footer__inner {
+  display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr;
+  gap: 40px; padding: 72px 32px 48px;
+}
+.footer__brand { display: flex; flex-direction: column; gap: 12px; }
+.footer__brand img { filter: brightness(0) invert(1); opacity: 0.92; }
+.footer__brand span { font-family: var(--font-serif); font-weight: 700; font-size: 19px; color: #fff; }
+.footer__brand em { font-style: normal; color: #D9B98C; }
+.footer__brand p { font-size: 13.5px; color: #B9AFA0; max-width: 260px; line-height: 1.6; }
+.footer__col { display: flex; flex-direction: column; gap: 12px; }
+.footer__head { font-size: 11.5px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: #D9B98C; margin-bottom: 4px; }
+.footer__col a, .footer__app-note { font-size: 14px; color: #CFC6B8; }
+.footer__col a:hover { color: #fff; }
+.footer__legal {
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+  padding: 20px 32px 32px; border-top: 1px solid rgba(255,255,255,0.08);
+  font-size: 12.5px; color: #93887A;
+}
+@media (max-width: 860px) {
+  .footer__inner { grid-template-columns: 1fr 1fr; }
+  .footer__legal { flex-direction: column; }
+}
+
+/* ---------- shared page patterns ---------- */
+.section { padding: 96px 0; }
+.section--tight { padding: 64px 0; }
+.section-head { max-width: 640px; margin-bottom: 48px; }
+.section-head h2 { font-size: 36px; margin-top: 12px; letter-spacing: -0.5px; }
+.section-head p { font-size: 16px; color: var(--ink-soft); margin-top: 14px; line-height: 1.6; }
+.section-head--center { margin-left: auto; margin-right: auto; text-align: center; }
+
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal.in { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 640px) {
+  .section { padding: 64px 0; }
+  .section-head h2 { font-size: 28px; }
+}

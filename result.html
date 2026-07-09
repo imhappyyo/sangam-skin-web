@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Your Routine — Sangam Skin</title>
+<meta name="robots" content="noindex" />
+<link rel="icon" href="/assets/images/favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/tokens.css" />
+<link rel="stylesheet" href="/assets/css/site.css" />
+<link rel="stylesheet" href="/assets/css/result.css" />
+</head>
+<body>
+
+<div id="site-header" data-active="quiz"></div>
+
+<main class="result">
+  <div class="container result__hero reveal in">
+    <p class="eyebrow" data-i18n="result_eyebrow"></p>
+    <h1 data-i18n="result_title"></h1>
+    <p class="result__count" data-result-count></p>
+  </div>
+
+  <div class="container result__sessions">
+    <section class="result__session">
+      <div class="result__session-head">
+        <span class="badge badge--am" data-i18n="result_am"></span>
+      </div>
+      <div class="result__list" data-result-am></div>
+    </section>
+    <section class="result__session">
+      <div class="result__session-head">
+        <span class="badge badge--pm" data-i18n="result_pm"></span>
+      </div>
+      <div class="result__list" data-result-pm></div>
+    </section>
+  </div>
+
+  <div class="container result__why reveal">
+    <h3 data-i18n="result_why_title"></h3>
+    <p data-i18n="result_why_body"></p>
+  </div>
+
+  <div class="container result__ctas reveal">
+    <a class="btn btn--primary" href="/catalog.html" data-i18n="result_catalog_cta"></a>
+    <a class="btn btn--outline" href="/quiz.html" data-i18n="result_retake"></a>
+  </div>
+
+  <p class="container result__disclaimer" data-i18n="result_disclaimer"></p>
+</main>
+
+<div id="site-footer"></div>
+
+<script src="/data/products.js"></script>
+<script src="/assets/js/i18n.js"></script>
+<script src="/assets/js/chrome.js"></script>
+<script src="/assets/js/reveal.js"></script>
+<script src="/assets/js/product-card.js"></script>
+<script src="/assets/js/result.js"></script>
+</body>
+</html>

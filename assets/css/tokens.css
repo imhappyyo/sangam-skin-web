@@ -1,0 +1,178 @@
+/* Sangam Skin — design tokens. Ported from the app's bloom palette
+ * (src/theme/palettes.ts) so the website and the app read as one brand. */
+:root {
+  /* brand */
+  --green: #1F4A35;
+  --green-dark: #143526;
+  --green-soft: #2D6A4B;
+  --sage: #E7EDDF;
+  --gold: #C9A227;
+  --gold-soft: #EBDFC2;
+
+  /* accent — Mocha Mousse warm mocha-rose */
+  --accent: #A47764;
+  --accent-dark: #7E564A;
+  --accent-soft: #E7C6BA;
+  --accent-bg: #F6E9E0;
+  --rose: #C99089;
+
+  /* neutrals */
+  --bg: #FAF4ED;
+  --surface: #FFFFFF;
+  --cream: #F6E9E0;
+  --ink: #2E211C;
+  --ink-soft: #6A574E;
+  --ink-faint: #A08D82;
+  --line: #EDDDD3;
+  --line-mid: #DCC8BB;
+
+  /* semantic */
+  --ok: #7D9270;
+  --warn: #B7791F;
+  --danger: #B4574E;
+  --ok-bg: #EDF2E8;
+
+  /* AM/PM */
+  --am: #C99B4A;
+  --am-bg: #FBF3E4;
+  --pm: #A98F9D;
+  --pm-bg: #F3E8E6;
+
+  /* type */
+  --font-serif: 'PT Serif', Georgia, serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* layout */
+  --max-width: 1240px;
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-full: 999px;
+  --shadow-card: 0 8px 32px rgba(31, 74, 53, 0.06);
+  --shadow-raised: 0 16px 48px rgba(31, 74, 53, 0.10);
+
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 700; margin: 0; line-height: 1.15; }
+p { margin: 0; }
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+button { font-family: inherit; cursor: pointer; }
+ul { margin: 0; padding: 0; list-style: none; }
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.eyebrow {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 56px;
+  padding: 0 32px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 15px;
+  border: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn:active { transform: translateY(0); }
+.btn--primary { background: var(--green); color: #fff; }
+.btn--primary:hover { background: var(--green-dark); box-shadow: var(--shadow-raised); }
+.btn--outline { background: transparent; color: var(--ink); border: 1.5px solid var(--line-mid); }
+.btn--outline:hover { border-color: var(--green); }
+.btn--accent { background: var(--accent); color: #fff; }
+.btn--accent:hover { background: var(--accent-dark); box-shadow: var(--shadow-raised); }
+.btn--sm { height: 44px; padding: 0 22px; font-size: 13.5px; }
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  height: 38px;
+  padding: 0 18px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--line);
+  background: var(--surface);
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--ink);
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  white-space: nowrap;
+}
+.chip:hover { border-color: var(--line-mid); }
+.chip.is-active { background: var(--green); border-color: var(--green); color: #fff; }
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  height: 24px;
+  padding: 0 10px;
+  border-radius: var(--radius-full);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+.badge--am { background: var(--am-bg); color: var(--am); }
+.badge--pm { background: var(--pm-bg); color: var(--pm); }
+.badge--ok { background: var(--ok-bg); color: var(--ok); }
+
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+
+/* gradient monogram tile (packaging-free product visual — matches the app) */
+.tile {
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  color: #fff;
+  flex-shrink: 0;
+}
+.tile--skin { background: linear-gradient(135deg, #DFE9DF, #F7F4EC); color: var(--green); }
+.tile--hair { background: linear-gradient(135deg, #1F4A35, #557E63); color: #F3EFE7; }
+.tile--lips { background: linear-gradient(135deg, #E9CFC2, #F8EDE6); color: #8C4A38; }
+.tile--lash { background: linear-gradient(135deg, #243B30, #3D5647); color: #E9DDBE; }
+
+@media (max-width: 860px) {
+  .container { padding: 0 20px; }
+}

@@ -1,0 +1,35 @@
+/* Sangam Skin — Skin Lens feature page. */
+.lens-page { padding: 56px 0 100px; }
+.lens-page__hero { max-width: 620px; margin-bottom: 64px; }
+.lens-page__hero h1 { font-size: 40px; margin-top: 12px; letter-spacing: -0.6px; }
+.lens-page__lede { font-size: 16.5px; color: var(--ink-soft); margin-top: 16px; line-height: 1.65; }
+
+.lens-page__demo {
+  display: grid; grid-template-columns: auto 1fr; gap: 64px; align-items: center;
+  background: var(--cream); border-radius: var(--radius-lg); padding: 48px; margin-bottom: 80px;
+}
+.lens-mock--big { margin: 0; }
+.lens-page__dims-label { font-size: 11.5px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; }
+.lens-dim { display: grid; grid-template-columns: 90px 1fr; align-items: center; gap: 14px; margin-bottom: 10px; }
+.lens-dim span { font-size: 13px; color: var(--ink); font-weight: 500; }
+.lens-dim__bar { height: 8px; background: var(--line); border-radius: 4px; overflow: hidden; }
+.lens-dim__bar i { display: block; height: 100%; background: var(--accent); border-radius: 4px; }
+.lens-page__dims-note { font-size: 11.5px; color: var(--ink-faint); margin-top: 14px; font-style: italic; }
+
+.lens-page__how { margin-bottom: 80px; }
+
+.lens-page__privacy {
+  max-width: 640px; margin: 0 auto 64px; text-align: center;
+}
+.lens-page__privacy h2 { font-size: 22px; }
+.lens-page__privacy p { font-size: 14.5px; color: var(--ink-soft); margin-top: 14px; line-height: 1.65; }
+.lens-page__disclaimer { font-size: 12.5px !important; color: var(--ink-faint) !important; margin-top: 20px !important; }
+
+.lens-page__cta { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 18px; }
+.lens-page__cta p { font-size: 14px; color: var(--ink-faint); max-width: 420px; }
+
+@media (max-width: 760px) {
+  .lens-page__demo { grid-template-columns: 1fr; text-align: center; padding: 32px; gap: 32px; }
+  .lens-mock--big { margin: 0 auto; }
+  .lens-page__hero h1 { font-size: 30px; }
+}
