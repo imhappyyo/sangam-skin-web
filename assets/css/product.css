@@ -1,51 +1,261 @@
-/* Sangam Skin — product detail page. */
-.product-page { padding: 48px 0 100px; }
-.product-page__inner { max-width: 820px; margin: 0 auto; }
-.product-page__back {
-  display: inline-flex; align-items: center; gap: 6px; font-size: 13.5px;
-  color: var(--ink-soft); font-weight: 500; margin-bottom: 32px;
+/* Sangam Skin — product detail page (BIO-LUXE FUTURIST).
+   Dark hero band (bottle-stone photo under an obsidian gradient) with a large
+   gradient monogram tile, then a porcelain body of numbered glass-on-light
+   cards and an obsidian quiz-CTA panel. Markup rendered by product.js. */
+
+.product-page { padding: 0 0 110px; }
+
+/* ============================ dark hero band ============================ */
+.product-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 56px 0 64px;
+  background:
+    linear-gradient(95deg, rgba(10, 15, 13, 0.97) 34%, rgba(10, 15, 13, 0.78) 78%, rgba(15, 27, 22, 0.66) 100%),
+    url('/assets/images/photos/bottle-stone.jpg') 82% 30% / cover no-repeat;
 }
-.product-page__back:hover { color: var(--green); }
+.product-hero .fx-aurora { opacity: 0.4; }
+.product-hero__inner { position: relative; z-index: 1; max-width: 980px; margin: 0 auto; }
+.product-hero__line {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  margin: 0;
+  z-index: 1;
+}
 
-.product-page__hero { display: flex; gap: 32px; align-items: flex-start; }
-.product-page__tile { width: 96px; height: 96px; font-size: 26px; flex-shrink: 0; }
-.product-page__badges { display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
-.product-page__hero h1 { font-size: 34px; letter-spacing: -0.5px; line-height: 1.15; }
-.product-page__blurb { font-size: 16px; color: var(--ink-soft); margin-top: 14px; line-height: 1.6; max-width: 560px; }
+.product-hero__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 38px;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.55);
+  transition: color 0.2s ease;
+}
+.product-hero__back:hover { color: var(--mint); }
 
-.product-page__grid { margin-top: 56px; display: flex; flex-direction: column; gap: 32px; }
+.product-hero__layout {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+.product-hero__tile {
+  width: 148px;
+  height: 148px;
+  border-radius: var(--radius-lg);
+  font-size: 40px;
+  letter-spacing: 2px;
+  box-shadow:
+    0 28px 64px rgba(0, 0, 0, 0.5),
+    0 0 44px rgba(74, 240, 184, 0.14);
+}
+.product-hero__tile::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(130% 105% at 82% -12%, rgba(255, 255, 255, 0.28), transparent 55%);
+}
+.product-hero__tile span { position: relative; z-index: 1; }
+
+.product-page__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.product-hero__copy h1 {
+  font-size: clamp(28px, 4.4vw, 46px);
+  letter-spacing: -0.015em;
+  line-height: 1.14;
+  color: #fff;
+}
+.product-hero__blurb {
+  margin-top: 16px;
+  max-width: 620px;
+  font-size: 16.5px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.66);
+}
+
+/* ============================ light body ============================ */
+.product-page__grid {
+  max-width: 880px;
+  margin: 60px auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+/* numbered glass-on-light cards */
 .product-page__block {
-  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 28px 32px;
+  position: relative;
+  padding: 30px 34px 32px;
+  background: rgba(255, 255, 255, 0.72);
+  -webkit-backdrop-filter: blur(14px) saturate(1.15);
+  backdrop-filter: blur(14px) saturate(1.15);
+  border: 1px solid var(--line-l);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  transition: border-color 0.3s ease, box-shadow 0.45s var(--ease-out);
 }
-.product-page__block h3 { font-size: 16px; margin-bottom: 12px; }
-.product-page__block p { font-size: 14.5px; color: var(--ink); line-height: 1.65; }
+.product-page__block:hover {
+  border-color: rgba(74, 240, 184, 0.45);
+  box-shadow: 0 16px 44px rgba(10, 15, 13, 0.1), 0 0 26px rgba(74, 240, 184, 0.1);
+}
+.product-page__num {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 11.5px;
+  letter-spacing: 2.6px;
+  color: var(--green);
+}
+.product-page__num::after {
+  content: '';
+  width: 28px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--iris-1), var(--iris-2));
+}
+.product-page__block h3 { font-size: 17px; margin-bottom: 14px; }
+.product-page__block p { font-size: 14.5px; color: var(--ink); line-height: 1.7; }
 .product-page__muted { color: var(--ink-faint); }
 
+/* actives — chips with a bio-glow dot + mint hover */
 .ingredient-chips { display: flex; flex-wrap: wrap; gap: 10px; }
 .ingredient-chip {
-  display: inline-flex; align-items: center; height: 34px; padding: 0 16px;
-  border-radius: var(--radius-full); background: var(--sage); color: var(--green);
-  font-size: 13px; font-weight: 500; transition: background 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  height: 36px;
+  padding: 0 18px;
+  border-radius: var(--radius-full);
+  background: var(--paper);
+  border: 1px solid var(--line-l);
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 500;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.25s ease;
 }
-.ingredient-chip:hover { background: var(--gold-soft); }
+.ingredient-chip::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  margin-right: 9px;
+  border-radius: 50%;
+  background: var(--mint);
+  box-shadow: 0 0 8px rgba(74, 240, 184, 0.8);
+  flex-shrink: 0;
+}
+.ingredient-chip:hover {
+  border-color: rgba(74, 240, 184, 0.8);
+  background: rgba(74, 240, 184, 0.1);
+  color: var(--green);
+  box-shadow: 0 0 16px rgba(74, 240, 184, 0.22);
+}
 
+/* layering notes */
+.product-page__pair,
+.product-page__avoid {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.product-page__pair + .product-page__avoid { margin-top: 16px; }
+.product-page__pair-ico,
+.product-page__avoid-ico {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  margin-top: 2px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.product-page__pair-ico { background: rgba(74, 240, 184, 0.18); color: var(--ok); }
+.product-page__avoid-ico { background: rgba(192, 82, 72, 0.12); color: var(--danger); }
 .product-page__pair strong { color: var(--green); }
-.product-page__avoid { margin-top: 10px; }
 .product-page__avoid strong { color: var(--danger); }
 
+/* ============================ quiz CTA panel ============================ */
 .product-page__cta {
-  margin-top: 56px; text-align: center; background: var(--cream);
-  border-radius: var(--radius-lg); padding: 40px; display: flex;
-  flex-direction: column; align-items: center; gap: 18px;
+  position: relative;
+  overflow: hidden;
+  max-width: 880px;
+  margin: 60px auto 0;
+  padding: 64px 40px;
+  text-align: center;
+  background: var(--obsidian);
+  color: #fff;
+  border-radius: var(--radius-xl);
+  box-shadow: 0 28px 72px rgba(10, 15, 13, 0.3);
 }
-.product-page__cta p { font-size: 15px; color: var(--ink-soft); }
+.product-page__cta .fx-aurora { opacity: 0.5; }
+.product-page__cta-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+.product-page__cta h3 {
+  font-size: clamp(22px, 3vw, 30px);
+  letter-spacing: -0.01em;
+  color: #fff;
+}
+.product-page__cta p {
+  max-width: 520px;
+  font-size: 15.5px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.66);
+}
+.product-page__cta .btn { margin-top: 12px; }
 
-.product-page__notfound { text-align: center; max-width: 440px; margin: 80px auto; display: flex; flex-direction: column; gap: 16px; align-items: center; }
+/* ============================ not-found state ============================ */
+.product-page__notfound {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  max-width: 460px;
+  margin: 0 auto;
+  padding: 120px 24px 60px;
+  text-align: center;
+}
+.product-page__notfound-mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, var(--deep), var(--green));
+  color: var(--mint);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 28px;
+  box-shadow: 0 18px 44px rgba(10, 15, 13, 0.28), 0 0 26px rgba(74, 240, 184, 0.16);
+}
 .product-page__notfound h1 { font-size: 26px; }
-.product-page__notfound p { color: var(--ink-soft); font-size: 14.5px; }
+.product-page__notfound p { color: var(--ink-soft); font-size: 14.5px; line-height: 1.65; }
 
+/* ============================ responsive ============================ */
+@media (max-width: 860px) {
+  .product-hero { padding: 44px 0 52px; }
+  .product-hero__layout { gap: 28px; }
+  .product-hero__tile { width: 120px; height: 120px; font-size: 32px; }
+}
 @media (max-width: 640px) {
-  .product-page__hero { flex-direction: column; gap: 20px; }
-  .product-page__hero h1 { font-size: 26px; }
-  .product-page__block { padding: 22px; }
+  .product-page { padding-bottom: 84px; }
+  .product-hero__back { margin-bottom: 28px; }
+  .product-hero__layout { flex-direction: column; gap: 22px; }
+  .product-hero__tile { width: 104px; height: 104px; font-size: 28px; }
+  .product-hero__blurb { font-size: 15px; }
+  .product-page__grid { margin-top: 44px; gap: 16px; }
+  .product-page__block { padding: 24px 22px 26px; }
+  .product-page__cta { margin-top: 44px; padding: 48px 24px; }
 }

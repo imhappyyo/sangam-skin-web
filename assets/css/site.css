@@ -1,44 +1,76 @@
-/* Sangam Skin — site chrome (header/footer) + shared page patterns. */
+/* Sangam Skin — site chrome (header/footer) + shared page patterns.
+   BIO-LUXE FUTURIST: dark-glass sticky header that reads over both obsidian
+   heroes and porcelain sections; obsidian footer with mint accents. */
 
 /* ---------- header ---------- */
 .header {
   position: sticky; top: 0; z-index: 50;
-  background: rgba(250, 244, 237, 0.88);
-  backdrop-filter: blur(10px) saturate(1.2);
-  border-bottom: 1px solid var(--line);
+  background: rgba(10, 15, 13, 0.74);
+  -webkit-backdrop-filter: blur(18px) saturate(1.35);
+  backdrop-filter: blur(18px) saturate(1.35);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 .header__inner {
   display: flex; align-items: center; justify-content: space-between;
-  height: 84px; gap: 32px;
+  height: 76px; gap: 32px;
 }
 .header__brand {
-  display: flex; align-items: center; gap: 10px;
-  font-family: var(--font-serif); font-weight: 700; font-size: 20px; color: var(--green);
+  display: flex; align-items: center; gap: 12px;
+  font-family: var(--font-display); font-weight: 600; font-size: 17px;
+  letter-spacing: 0.2px; color: #fff;
   flex-shrink: 0;
 }
-.header__brand em { font-style: normal; color: var(--accent); }
+.header__brand em { font-style: normal; color: var(--mint); }
+/* The tree mark's native aspect ratio is ~0.77:1 (taller than wide) — constrain
+   only the height and let width scale naturally so it never gets squashed
+   into a square. Inverted to read on the dark glass bar. */
+.header__brand img {
+  height: 44px; width: auto;
+  filter: brightness(0) invert(1);
+  opacity: 0.95;
+}
 .header__nav { display: flex; align-items: center; gap: 36px; flex: 1; justify-content: center; }
 .nav__link {
-  font-size: 14.5px; font-weight: 500; color: var(--ink-soft);
-  position: relative; padding: 6px 0; transition: color 0.15s ease;
+  font-size: 14px; font-weight: 500; letter-spacing: 0.2px;
+  color: rgba(255, 255, 255, 0.68);
+  position: relative; padding: 6px 0; transition: color 0.2s ease;
 }
-.nav__link:hover, .nav__link.is-active { color: var(--green); }
+.nav__link:hover, .nav__link.is-active { color: #fff; }
 .nav__link.is-active::after {
-  content: ''; position: absolute; left: 0; right: 0; bottom: -3px; height: 2px;
-  background: var(--gold); border-radius: 2px;
+  content: ''; position: absolute; left: 0; right: 0; bottom: -4px; height: 2px;
+  background: linear-gradient(90deg, var(--iris-1), var(--iris-2));
+  border-radius: 2px;
+  box-shadow: 0 0 10px rgba(74, 240, 184, 0.55);
 }
 .header__actions { display: flex; align-items: center; gap: 18px; flex-shrink: 0; }
-.lang-switch { display: flex; border: 1px solid var(--line-mid); border-radius: var(--radius-full); padding: 3px; gap: 2px; }
+.lang-switch {
+  display: flex; border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: var(--radius-full); padding: 3px; gap: 2px;
+  background: rgba(255, 255, 255, 0.04);
+}
 .lang-switch button {
   border: none; background: transparent; border-radius: var(--radius-full);
-  width: 34px; height: 28px; font-size: 12px; font-weight: 700; color: var(--ink-faint);
+  width: 34px; height: 28px; font-size: 12px; font-weight: 700;
+  color: rgba(255, 255, 255, 0.55);
   letter-spacing: 0.4px;
+  transition: background 0.2s ease, color 0.2s ease;
 }
-.lang-switch button.is-active { background: var(--green); color: #fff; }
+.lang-switch button:hover { color: #fff; }
+.lang-switch button.is-active { background: var(--mint); color: var(--obsidian); }
 .header__burger { display: none; flex-direction: column; gap: 4px; background: none; border: none; padding: 8px; }
-.header__burger span { width: 20px; height: 2px; background: var(--ink); border-radius: 2px; }
-.header__mobile-nav { display: none; flex-direction: column; padding: 8px 20px 20px; gap: 4px; }
-.header__mobile-nav .nav__link { padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 16px; }
+.header__burger span { width: 20px; height: 2px; background: #fff; border-radius: 2px; }
+.header__mobile-nav {
+  display: none; flex-direction: column; padding: 8px 20px 20px; gap: 4px;
+  background: rgba(10, 15, 13, 0.96);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+.header__mobile-nav .nav__link {
+  padding: 14px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 16px; color: rgba(255, 255, 255, 0.8);
+}
+.header__mobile-nav .nav__link:hover,
+.header__mobile-nav .nav__link.is-active { color: var(--mint); }
+.header__mobile-nav .nav__link.is-active::after { display: none; }
 .header__mobile-nav.is-open { display: flex; }
 
 @media (max-width: 980px) {
@@ -48,24 +80,41 @@
 }
 
 /* ---------- footer ---------- */
-.footer { background: var(--green-dark); color: #EDE7DC; margin-top: 120px; }
+.footer {
+  position: relative;
+  background: var(--obsidian);
+  color: rgba(255, 255, 255, 0.78);
+  margin-top: 0;
+}
+/* iridescent hairline along the footer's top edge */
+.footer::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--iris-1), var(--iris-2), var(--iris-3), transparent);
+  opacity: 0.55;
+}
 .footer__inner {
   display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr;
-  gap: 40px; padding: 72px 32px 48px;
+  gap: 40px; padding: 76px 32px 48px;
 }
 .footer__brand { display: flex; flex-direction: column; gap: 12px; }
-.footer__brand img { filter: brightness(0) invert(1); opacity: 0.92; }
-.footer__brand span { font-family: var(--font-serif); font-weight: 700; font-size: 19px; color: #fff; }
-.footer__brand em { font-style: normal; color: #D9B98C; }
-.footer__brand p { font-size: 13.5px; color: #B9AFA0; max-width: 260px; line-height: 1.6; }
+.footer__brand img { filter: brightness(0) invert(1); opacity: 0.92; height: 36px; width: auto; }
+.footer__brand span {
+  font-family: var(--font-display); font-weight: 600; font-size: 18px;
+  letter-spacing: 0.2px; color: #fff;
+}
+.footer__brand em { font-style: normal; color: var(--mint); }
+.footer__brand p { font-size: 13.5px; color: rgba(255, 255, 255, 0.46); max-width: 260px; line-height: 1.65; }
 .footer__col { display: flex; flex-direction: column; gap: 12px; }
-.footer__head { font-size: 11.5px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: #D9B98C; margin-bottom: 4px; }
-.footer__col a, .footer__app-note { font-size: 14px; color: #CFC6B8; }
-.footer__col a:hover { color: #fff; }
+.footer__head {
+  font-size: 11px; font-weight: 700; letter-spacing: 1.8px; text-transform: uppercase;
+  color: var(--mint); margin-bottom: 4px;
+}
+.footer__col a, .footer__app-note { font-size: 14px; color: rgba(255, 255, 255, 0.62); transition: color 0.2s ease; }
+.footer__col a:hover { color: var(--mint); }
 .footer__legal {
   display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
-  padding: 20px 32px 32px; border-top: 1px solid rgba(255,255,255,0.08);
-  font-size: 12.5px; color: #93887A;
+  padding: 20px 32px 32px; border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 12.5px; color: rgba(255, 255, 255, 0.38);
 }
 @media (max-width: 860px) {
   .footer__inner { grid-template-columns: 1fr 1fr; }
@@ -73,17 +122,30 @@
 }
 
 /* ---------- shared page patterns ---------- */
-.section { padding: 96px 0; }
+.section { padding: 104px 0; }
 .section--tight { padding: 64px 0; }
-.section-head { max-width: 640px; margin-bottom: 48px; }
-.section-head h2 { font-size: 36px; margin-top: 12px; letter-spacing: -0.5px; }
-.section-head p { font-size: 16px; color: var(--ink-soft); margin-top: 14px; line-height: 1.6; }
+.section-head { max-width: 680px; margin-bottom: 56px; }
+.section-head h2 {
+  font-size: clamp(28px, 3.8vw, 42px);
+  margin-top: 14px;
+  letter-spacing: -0.01em;
+}
+.section-head p { font-size: 16.5px; color: var(--ink-soft); margin-top: 16px; line-height: 1.65; }
+.section--dark .section-head p { color: rgba(255, 255, 255, 0.62); }
 .section-head--center { margin-left: auto; margin-right: auto; text-align: center; }
+.section-head--center .eyebrow { justify-content: center; }
 
-.reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
-.reveal.in { opacity: 1; transform: translateY(0); }
+/* ---------- legacy reveal (old pages during transition) ----------
+   Gated on .sangam-fx (added by fx.js) so content is never hidden without JS.
+   fx.js treats .reveal exactly like data-fx="up". */
+.sangam-fx .reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+}
+.sangam-fx .reveal.in, .reveal.in { opacity: 1; transform: translateY(0); }
 
 @media (max-width: 640px) {
-  .section { padding: 64px 0; }
-  .section-head h2 { font-size: 28px; }
+  .section { padding: 72px 0; }
+  .section-head h2 { font-size: 26px; }
 }

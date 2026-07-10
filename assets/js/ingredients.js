@@ -1,10 +1,18 @@
 /* Sangam Skin — ingredient glossary: search + family filter over 50 actives.
  * Family names come straight from the (already bilingual) ingredient data,
- * so no separate i18n keys are needed for the 17 family labels. */
+ * so no separate i18n keys are needed for the 17 family labels.
+ * Cards render as clinical data cards with staggered [data-fx] reveals on
+ * initial/language renders (search & filter re-renders stay instant). */
 (function () {
   'use strict';
 
   const state = { query: '', family: null };
+  let renderedLang = null;   // skip redundant re-renders when the catalog is
+                             // merely re-applied (chrome.js reapply on mount)
+  let deepLinked = false;    // only scroll to #hash once, not on every render
+
+  // stable "Nº" code per ingredient (its position in the master list)
+  const IDX = new Map(window.INGREDIENTS.map((ing, i) => [ing.key, i + 1]));
 
   function ruPlural(n, one, few, many) {
     const n100 = n % 100, n10 = n % 10;
@@ -33,7 +41,7 @@
     document.querySelectorAll('[data-fam]').forEach(btn => btn.addEventListener('click', () => {
       const v = btn.getAttribute('data-fam');
       state.family = v || null;
-      renderFilters(); renderGrid();
+      renderFilters(); renderGrid(false);
     }));
   }
 
@@ -50,15 +58,20 @@
     });
   }
 
-  function cardHTML(ing, lang) {
+  function cardHTML(ing, lang, pos, withFx) {
     const name = ing.name[lang] || ing.name.en;
     const family = ing.family[lang] || ing.family.en;
     const what = ing.what[lang] || ing.what.en;
     const benefits = (ing.benefits[lang] || ing.benefits.en).slice(0, 3);
     const caution = ing.caution[lang] || ing.caution.en;
+    const code = String(IDX.get(ing.key) || 0).padStart(2, '0');
+    const fx = withFx ? ` data-fx="up" data-fx-delay="${Math.min(pos, 8) * 60}"` : '';
     return `
-      <article class="ing-card" id="${ing.key}">
-        <span class="ing-card__family">${family}</span>
+      <article class="ing-card" id="${ing.key}"${fx}>
+        <div class="ing-card__top">
+          <span class="ing-card__family">${family}</span>
+          <span class="ing-card__idx">Nº ${code}</span>
+        </div>
         <h3>${name}</h3>
         <p class="ing-card__what">${what}</p>
         <ul class="ing-card__benefits">
@@ -68,14 +81,17 @@
       </article>`;
   }
 
-  function renderGrid() {
+  function renderGrid(withFx) {
     const lang = window.SangamI18n.lang;
+    renderedLang = lang;
     const list = filtered(lang);
     document.getElementById('ing-count').textContent = countLabel(list.length, lang);
-    document.getElementById('ing-grid').innerHTML = list.map(i => cardHTML(i, lang)).join('');
+    document.getElementById('ing-grid').innerHTML =
+      list.map((i, pos) => cardHTML(i, lang, pos, withFx)).join('');
     document.dispatchEvent(new Event('sangam:content-mounted'));
-    // deep-link: scroll to #key if present (e.g. arriving from a product page)
-    if (location.hash) {
+    // deep-link: scroll to #key once if present (e.g. arriving from a product page)
+    if (!deepLinked && location.hash) {
+      deepLinked = true;
       const el = document.getElementById(decodeURIComponent(location.hash.slice(1)));
       if (el) { el.scrollIntoView({ block: 'start' }); el.classList.add('ing-card--highlight'); }
     }
@@ -83,12 +99,15 @@
 
   function init() {
     renderFilters();
-    renderGrid();
+    renderGrid(true);
     document.getElementById('ing-search').addEventListener('input', e => {
       state.query = e.target.value;
-      renderGrid();
+      renderGrid(false);
     });
-    document.addEventListener('i18n:applied', () => { renderFilters(); renderGrid(); });
+    document.addEventListener('i18n:applied', () => {
+      if (window.SangamI18n.lang === renderedLang) return; // same catalog re-applied
+      renderFilters(); renderGrid(true);
+    });
   }
 
   window.SangamI18n.ready.then(init);

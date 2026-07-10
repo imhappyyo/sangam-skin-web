@@ -1,4 +1,6 @@
-/* Sangam Skin — catalogue: search + category/concern filters over all 118 products. */
+/* Sangam Skin — catalogue: search + category/concern filters over all 118 products.
+ * First paint staggers the grid in via data-fx; later re-renders (typing,
+ * filtering, language switch) mount instantly so the UI never feels laggy. */
 (function () {
   'use strict';
 
@@ -12,6 +14,7 @@
   const CONCERNS = ['acne', 'aging', 'dark-spots', 'dryness', 'sensitivity', 'oil-control', 'texture', 'hair-loss'];
 
   const state = { query: '', category: null, concern: null };
+  let firstPaint = true;
 
   function ruPlural(n, one, few, many) {
     const n100 = n % 100, n10 = n % 10;
@@ -27,12 +30,11 @@
   }
 
   function renderFilters() {
-    const lang = window.SangamI18n.lang;
     document.getElementById('catalog-categories').innerHTML = CATEGORIES.map(c => `
-      <button class="chip${state.category === c.value ? ' is-active' : ''}" data-cat="${c.value ?? ''}">${window.t(c.key)}</button>
+      <button class="chip${state.category === c.value ? ' is-active' : ''}" type="button" data-cat="${c.value ?? ''}">${window.t(c.key)}</button>
     `).join('');
     document.getElementById('catalog-concerns').innerHTML = CONCERNS.map(c => `
-      <button class="chip${state.concern === c ? ' is-active' : ''}" data-concern="${c}">${window.t('cat_concern_' + c)}</button>
+      <button class="chip${state.concern === c ? ' is-active' : ''}" type="button" data-concern="${c}">${window.t('cat_concern_' + c)}</button>
     `).join('');
 
     document.querySelectorAll('[data-cat]').forEach(btn => btn.addEventListener('click', () => {
@@ -52,7 +54,7 @@
       if (state.category && p.category !== state.category) return false;
       if (state.concern && !p.concerns.includes(state.concern)) return false;
       if (q) {
-        const hay = `${p.name.en} ${p.name.ru} ${p.blurb.en} ${p.actives.join(' ')}`.toLowerCase();
+        const hay = `${p.name.en} ${p.name.ru} ${p.blurb.en} ${p.blurb.ru} ${p.actives.join(' ')}`.toLowerCase();
         if (!hay.includes(q)) return false;
       }
       return true;
@@ -75,6 +77,15 @@
     } else {
       empty.hidden = true;
       grid.innerHTML = list.map(p => window.SangamCard.productCardHTML(p, lang)).join('');
+      if (firstPaint) {
+        // stagger only the first paint: hero-adjacent cards cascade in;
+        // deeper rows get a light per-column stagger as they scroll into view.
+        firstPaint = false;
+        Array.prototype.forEach.call(grid.children, (el, i) => {
+          el.setAttribute('data-fx', 'up');
+          el.setAttribute('data-fx-delay', String(i < 12 ? i * 50 : (i % 4) * 60));
+        });
+      }
     }
     document.dispatchEvent(new Event('sangam:content-mounted'));
   }

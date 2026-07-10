@@ -1,44 +1,32 @@
-/* Sangam Skin — reveal-on-scroll for .reveal elements. Elements already in
- * view when observed (e.g. injected right after a fetch/render, no scroll
- * yet to trigger IntersectionObserver's first callback) are shown
- * immediately via a synchronous bounding-rect check, instead of staying at
- * opacity:0 until the user happens to scroll past them again. */
+/* Sangam Skin — legacy shim. The reveal-on-scroll system now lives in
+ * assets/js/fx.js (window.SangamFX), which also handles .reveal elements.
+ * This file remains so existing <script src="/assets/js/reveal.js"> tags on
+ * older pages keep working: it makes sure fx.js is present and scanned. */
 (function () {
   'use strict';
 
-  let io = null;
-
-  function ensureObserver() {
-    if (io || !('IntersectionObserver' in window)) return io;
-    io = new IntersectionObserver(entries => {
-      entries.forEach(en => {
-        if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -6% 0px' });
-    return io;
+  function scanWhenReady() {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', function () { window.SangamFX.scan(); });
+    } else {
+      window.SangamFX.scan();
+    }
   }
 
-  function init() {
-    const els = document.querySelectorAll('.reveal:not(.in)');
-    if (!els.length) return;
+  if (window.SangamFX) { scanWhenReady(); return; }
 
-    const observer = ensureObserver();
-    const vh = window.innerHeight || 800;
-
-    els.forEach(el => {
-      const r = el.getBoundingClientRect();
-      if (r.top < vh * 0.96 && r.bottom > 0) {
-        el.classList.add('in');
-      } else if (observer) {
-        observer.observe(el);
-      } else {
-        el.classList.add('in');
-      }
+  // fx.js isn't on this page — inject it (it auto-inits and scans by itself).
+  var s = document.createElement('script');
+  s.src = '/assets/js/fx.js';
+  s.onerror = function () {
+    // last resort: never leave content invisible
+    document.documentElement.classList.remove('sangam-fx');
+    Array.prototype.forEach.call(document.querySelectorAll('.reveal'), function (el) {
+      el.classList.add('in');
     });
-  }
-
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
-  else init();
-  // re-scan after dynamic content (e.g. product grids) mounts
-  document.addEventListener('sangam:content-mounted', init);
+    Array.prototype.forEach.call(document.querySelectorAll('[data-fx]'), function (el) {
+      el.classList.add('fx-in');
+    });
+  };
+  document.head.appendChild(s);
 })();

@@ -1,27 +1,229 @@
-/* Sangam Skin — about page. */
-.about { padding: 56px 0 100px; }
-.about__hero { max-width: 640px; margin-bottom: 64px; }
-.about__hero h1 { font-size: 42px; margin-top: 12px; letter-spacing: -0.6px; }
-.about__lede { font-size: 17px; color: var(--ink-soft); margin-top: 18px; line-height: 1.6; }
+/* Sangam Skin — about page (BIO-LUXE FUTURIST, trust chapter).
+   Light, editorial-clinical and calm: porcelain sections, one warm story
+   image, glass-on-light value cards with mint icons, and a prominent
+   trust-styled disclaimer. Less flash by design. */
 
-.about__body { max-width: 760px; }
-.about__block { margin-bottom: 56px; }
-.about__block h2 { font-size: 24px; margin-bottom: 18px; }
-.about__block p { font-size: 15.5px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
-
-.about__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 8px; }
-.about__grid h3 { font-size: 16px; color: var(--green); margin-bottom: 8px; }
-.about__grid p { font-size: 13.5px; margin-bottom: 0; }
-
-.about__disclaimer {
-  background: var(--cream); border-radius: var(--radius-lg); padding: 36px;
-  scroll-margin-top: 100px;
+/* ============================ hero ============================ */
+.aboutx-hero { padding: 96px 0 88px; }
+.aboutx-hero__grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 72px;
+  align-items: center;
 }
-.about__disclaimer h2 { font-size: 19px; }
+.aboutx-hero h1 {
+  font-size: clamp(32px, 4.2vw, 50px);
+  margin-top: 18px;
+  letter-spacing: -0.01em;
+}
+.aboutx-lede {
+  font-size: 17px;
+  color: var(--ink-soft);
+  margin-top: 20px;
+  line-height: 1.7;
+  max-width: 560px;
+}
 
-.about__cta { display: flex; gap: 16px; flex-wrap: wrap; }
+.aboutx-hero__media {
+  position: relative;
+  margin: 0;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-raised);
+}
+.aboutx-hero__media img {
+  width: 100%;
+  height: 100%;
+  min-height: 380px;
+  object-fit: cover;
+  display: block;
+}
+/* faint clinical mint wash along the bottom edge */
+.aboutx-hero__media-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(200deg, transparent 55%, rgba(74, 240, 184, 0.14));
+}
 
-@media (max-width: 760px) {
-  .about__hero h1 { font-size: 30px; }
-  .about__grid { grid-template-columns: 1fr; gap: 24px; }
+/* real-number stat strip */
+.aboutx-stats {
+  display: flex;
+  gap: 44px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line-l);
+}
+.aboutx-stat { display: flex; flex-direction: column; gap: 4px; }
+.aboutx-stat__num {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 1;
+  color: var(--green);
+  font-variant-numeric: tabular-nums;
+}
+.aboutx-stat__label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+/* ============================ story ============================ */
+.aboutx-story { padding: 32px 0 96px; }
+.aboutx-story__grid {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 72px;
+  align-items: center;
+}
+.aboutx-story__media {
+  margin: 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+.aboutx-story__media img {
+  width: 100%;
+  height: 100%;
+  max-height: 440px;
+  object-fit: cover;
+  display: block;
+}
+.aboutx-story__copy h2 {
+  font-size: clamp(24px, 2.8vw, 32px);
+  margin-bottom: 20px;
+}
+.aboutx-story__copy p {
+  font-size: 15.5px;
+  color: var(--ink-soft);
+  line-height: 1.75;
+  margin-bottom: 16px;
+  max-width: 620px;
+}
+.aboutx-story__copy p:last-child { margin-bottom: 0; }
+
+/* ============== what we optimise for — glass on light ============== */
+.aboutx-approach {
+  position: relative;
+  padding: 96px 0;
+  background:
+    radial-gradient(720px 380px at 12% 8%, rgba(74, 240, 184, 0.12), transparent 68%),
+    radial-gradient(640px 360px at 88% 92%, rgba(181, 168, 240, 0.12), transparent 68%),
+    linear-gradient(180deg, #EFEDE7, var(--porcelain));
+}
+.aboutx-approach__title {
+  font-size: clamp(24px, 2.8vw, 32px);
+  margin-bottom: 44px;
+}
+.aboutx-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.aboutx-card {
+  background: rgba(255, 255, 255, 0.62);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  -webkit-backdrop-filter: blur(14px) saturate(1.15);
+  backdrop-filter: blur(14px) saturate(1.15);
+  border-radius: var(--radius-lg);
+  padding: 30px 28px;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.5s var(--ease-out), box-shadow 0.5s var(--ease-out);
+}
+.aboutx-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-raised);
+}
+.aboutx-card__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--deep), #17372A);
+  box-shadow: inset 0 0 18px rgba(74, 240, 184, 0.16), 0 8px 20px rgba(10, 15, 13, 0.18);
+  margin-bottom: 18px;
+}
+.aboutx-card h3 {
+  font-size: 16px;
+  line-height: 1.3;
+  color: var(--ink);
+  margin-bottom: 10px;
+}
+.aboutx-card p {
+  font-size: 13.5px;
+  color: var(--ink-soft);
+  line-height: 1.65;
+}
+
+/* ============== disclaimer — the trust block ============== */
+.aboutx-trust { padding: 96px 0 24px; }
+.aboutx-disclaimer {
+  display: flex;
+  gap: 26px;
+  align-items: flex-start;
+  max-width: 860px;
+  margin: 0 auto;
+  background: var(--paper);
+  border: 1px solid var(--line-l);
+  border-left: 4px solid var(--champagne);
+  border-radius: var(--radius-lg);
+  padding: 38px 40px;
+  box-shadow: var(--shadow-card);
+  scroll-margin-top: 110px;
+}
+.aboutx-disclaimer__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--accent-bg);
+}
+.aboutx-disclaimer__body h2 { font-size: 19px; margin-bottom: 14px; }
+.aboutx-disclaimer__body p {
+  font-size: 14.5px;
+  color: var(--ink-soft);
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+.aboutx-disclaimer__body p:last-child { margin-bottom: 0; }
+
+/* ============================ CTA ============================ */
+.aboutx-cta { padding: 72px 0 110px; }
+.aboutx-cta__inner { text-align: center; }
+.aboutx-cta__inner .line-iris { margin: 0 auto 52px; max-width: 520px; }
+.aboutx-cta__btns {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* ============================ responsive ============================ */
+@media (max-width: 980px) {
+  .aboutx-hero__grid { grid-template-columns: 1fr; gap: 44px; }
+  .aboutx-hero__media img { min-height: 300px; max-height: 420px; }
+  .aboutx-story__grid { grid-template-columns: 1fr; gap: 40px; }
+  .aboutx-story__media { max-width: 480px; }
+  .aboutx-cards { grid-template-columns: 1fr; max-width: 560px; }
+}
+@media (max-width: 640px) {
+  .aboutx-hero { padding: 64px 0 56px; }
+  .aboutx-stats { gap: 28px; }
+  .aboutx-approach { padding: 72px 0; }
+  .aboutx-trust { padding: 72px 0 8px; }
+  .aboutx-disclaimer {
+    flex-direction: column;
+    gap: 18px;
+    padding: 28px 22px;
+  }
+  .aboutx-cta { padding: 56px 0 88px; }
 }

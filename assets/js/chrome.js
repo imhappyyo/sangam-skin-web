@@ -1,6 +1,9 @@
 /* Sangam Skin — shared header + footer, injected into every page's
  * <div id="site-header"></div> / <div id="site-footer"></div>. Keeps nav
- * and footer in exactly one place instead of duplicated per-page HTML. */
+ * and footer in exactly one place instead of duplicated per-page HTML.
+ * NOTE: nav links carry data-i18n (i18n.js replaces their textContent), so
+ * the active-link mint underline lives on the <a>'s ::after in site.css —
+ * never as a child span, or i18n would wipe it. */
 (function () {
   'use strict';
 
@@ -10,7 +13,7 @@
     return `
       <div class="header__inner container">
         <a class="header__brand" href="/index.html" aria-label="Sangam Skin">
-          <img src="/assets/images/sangam-tree.svg" alt="" width="32" height="32" />
+          <img src="/assets/images/sangam-tree.svg" alt="" width="34" height="44" />
           <span>Sangam <em>Skin</em></span>
         </a>
         <nav class="header__nav">
@@ -25,7 +28,7 @@
             <button type="button" data-lang-active="ru" data-set-lang="ru">RU</button>
           </div>
           <a class="btn btn--primary btn--sm" href="/quiz.html" data-i18n="nav_cta"></a>
-          <button class="header__burger" type="button" aria-label="Menu" data-menu-toggle>
+          <button class="header__burger" type="button" aria-label="Menu" aria-expanded="false" data-menu-toggle>
             <span></span><span></span><span></span>
           </button>
         </div>
@@ -43,7 +46,7 @@
     return `
       <div class="container footer__inner">
         <div class="footer__brand">
-          <img src="/assets/images/sangam-tree.svg" alt="" width="28" height="28" />
+          <img src="/assets/images/sangam-tree.svg" alt="" width="28" height="36" />
           <span>Sangam <em>Skin</em></span>
           <p data-i18n="footer_tagline"></p>
         </div>
@@ -81,7 +84,11 @@
       const btn = e.target.closest('[data-set-lang]');
       if (btn) window.SangamI18n.setLang(btn.getAttribute('data-set-lang'));
       const burger = e.target.closest('[data-menu-toggle]');
-      if (burger) document.querySelector('[data-mobile-nav]')?.classList.toggle('is-open');
+      if (burger) {
+        const nav = document.querySelector('[data-mobile-nav]');
+        const open = nav ? nav.classList.toggle('is-open') : false;
+        burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      }
     });
 
     // i18n.js's own initial setLang() may have already resolved BEFORE this

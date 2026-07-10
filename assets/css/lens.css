@@ -1,35 +1,387 @@
-/* Sangam Skin — Skin Lens feature page. */
-.lens-page { padding: 56px 0 100px; }
-.lens-page__hero { max-width: 620px; margin-bottom: 64px; }
-.lens-page__hero h1 { font-size: 40px; margin-top: 12px; letter-spacing: -0.6px; }
-.lens-page__lede { font-size: 16.5px; color: var(--ink-soft); margin-top: 16px; line-height: 1.65; }
+/* Sangam Skin — Skin Lens feature page (BIO-LUXE FUTURIST).
+   The most futuristic page on the site: obsidian throughout, aurora +
+   molecule-particle hero, glass phone mock with an animated scan line,
+   7 mint-gradient dimension bars that grow on scroll, glass step cards,
+   and a mint-shield privacy section. Self-contained (no home.css). */
 
-.lens-page__demo {
-  display: grid; grid-template-columns: auto 1fr; gap: 64px; align-items: center;
-  background: var(--cream); border-radius: var(--radius-lg); padding: 48px; margin-bottom: 80px;
+body.lensx-page { background: var(--obsidian); }
+
+/* ============================ hero ============================ */
+.lensx-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 104px 0 112px;
 }
-.lens-mock--big { margin: 0; }
-.lens-page__dims-label { font-size: 11.5px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; }
-.lens-dim { display: grid; grid-template-columns: 90px 1fr; align-items: center; gap: 14px; margin-bottom: 10px; }
-.lens-dim span { font-size: 13px; color: var(--ink); font-weight: 500; }
-.lens-dim__bar { height: 8px; background: var(--line); border-radius: 4px; overflow: hidden; }
-.lens-dim__bar i { display: block; height: 100%; background: var(--accent); border-radius: 4px; }
-.lens-page__dims-note { font-size: 11.5px; color: var(--ink-faint); margin-top: 14px; font-style: italic; }
-
-.lens-page__how { margin-bottom: 80px; }
-
-.lens-page__privacy {
-  max-width: 640px; margin: 0 auto 64px; text-align: center;
+.lensx-hero__particles {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  opacity: 0.55;
 }
-.lens-page__privacy h2 { font-size: 22px; }
-.lens-page__privacy p { font-size: 14.5px; color: var(--ink-soft); margin-top: 14px; line-height: 1.65; }
-.lens-page__disclaimer { font-size: 12.5px !important; color: var(--ink-faint) !important; margin-top: 20px !important; }
+.lensx-hero__grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 72px;
+  align-items: center;
+}
+.lensx-hero h1 {
+  font-size: clamp(32px, 4.4vw, 52px);
+  margin-top: 18px;
+}
+.lensx-lede {
+  font-size: 16.5px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.66);
+  margin-top: 20px;
+  max-width: 540px;
+}
+.lensx-points {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 30px;
+}
+.lensx-points li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 14px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.8);
+}
+.lensx-points svg { flex-shrink: 0; margin-top: 3px; }
+.lensx-hero__cta { margin-top: 36px; }
 
-.lens-page__cta { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 18px; }
-.lens-page__cta p { font-size: 14px; color: var(--ink-faint); max-width: 420px; }
+/* ---- glass phone mock ---- */
+.lensx-hero__mockwrap { display: flex; justify-content: center; }
+.lensx-mock {
+  position: relative;
+  width: min(300px, 78vw);
+  aspect-ratio: 9 / 17;
+  border-radius: 40px;
+  overflow: hidden;
+  box-shadow:
+    0 40px 90px rgba(0, 0, 0, 0.6),
+    0 0 60px rgba(74, 240, 184, 0.14);
+}
+.lensx-mock__face {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 22%;
+  opacity: 0.38;
+  filter: saturate(0.85) contrast(1.05);
+}
+.lensx-mock__tint {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(10, 15, 13, 0.5), transparent 32%, transparent 62%, rgba(10, 15, 13, 0.82)),
+    radial-gradient(120% 70% at 50% 30%, rgba(74, 240, 184, 0.10), transparent 70%);
+}
+/* faint HUD grid */
+.lensx-mock__gridlines {
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(0deg, rgba(74, 240, 184, 0.05) 0 1px, transparent 1px 36px),
+    repeating-linear-gradient(90deg, rgba(74, 240, 184, 0.05) 0 1px, transparent 1px 36px);
+}
+/* corner brackets */
+.lensx-mock__corners i {
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  border: 2px solid rgba(74, 240, 184, 0.75);
+}
+.lensx-mock__corners i:nth-child(1) { top: 16px; left: 16px; border-right: 0; border-bottom: 0; border-radius: 10px 0 0 0; }
+.lensx-mock__corners i:nth-child(2) { top: 16px; right: 16px; border-left: 0; border-bottom: 0; border-radius: 0 10px 0 0; }
+.lensx-mock__corners i:nth-child(3) { bottom: 16px; left: 16px; border-right: 0; border-top: 0; border-radius: 0 0 0 10px; }
+.lensx-mock__corners i:nth-child(4) { bottom: 16px; right: 16px; border-left: 0; border-top: 0; border-radius: 0 0 10px 0; }
+/* animated scan line */
+.lensx-mock__scan {
+  position: absolute;
+  left: 9%;
+  right: 9%;
+  top: 8%;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, transparent, var(--mint), transparent);
+  box-shadow: 0 0 22px 3px rgba(74, 240, 184, 0.5);
+  animation: lensx-scan 3.4s ease-in-out infinite alternate;
+}
+@keyframes lensx-scan {
+  from { top: 8%; }
+  to   { top: 88%; }
+}
+/* floating reading chips */
+.lensx-mock__chip {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 13px;
+  border-radius: var(--radius-full);
+  font-size: 11.5px;
+  color: rgba(255, 255, 255, 0.85);
+  white-space: nowrap;
+}
+.lensx-mock__chip b {
+  font-family: ui-monospace, 'SF Mono', 'Menlo', monospace;
+  font-size: 11.5px;
+  color: var(--mint);
+}
+.lensx-mock__chip--a { top: 21%; left: 10%; animation: lensx-float 5.6s ease-in-out infinite; }
+.lensx-mock__chip--b { top: 47%; right: 8%; animation: lensx-float 6.4s ease-in-out 0.9s infinite; }
+@keyframes lensx-float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-7px); }
+}
+/* glow score */
+.lensx-mock__score {
+  position: absolute;
+  left: 50%;
+  bottom: 60px;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 14px 26px;
+  border-radius: var(--radius-md);
+}
+.lensx-mock__score-num {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 1;
+  color: var(--mint);
+  text-shadow: 0 0 24px rgba(74, 240, 184, 0.5);
+  font-variant-numeric: tabular-nums;
+}
+.lensx-mock__score small {
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+}
+/* honesty caption */
+.lensx-mock__caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  font-size: 10px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+}
+.lensx-mock__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--mint);
+  box-shadow: 0 0 8px rgba(74, 240, 184, 0.8);
+  animation: lensx-blink 1.8s ease-in-out infinite;
+}
+@keyframes lensx-blink {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.25; }
+}
 
-@media (max-width: 760px) {
-  .lens-page__demo { grid-template-columns: 1fr; text-align: center; padding: 32px; gap: 32px; }
-  .lens-mock--big { margin: 0 auto; }
-  .lens-page__hero h1 { font-size: 30px; }
+/* ============================ dimensions ============================ */
+.lensx-dims { position: relative; }
+.lensx-dims__panel {
+  padding: 44px 48px 36px;
+  max-width: 860px;
+}
+.lensx-dim {
+  display: grid;
+  grid-template-columns: 150px 1fr 56px;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 16px;
+}
+.lensx-dim__name {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.82);
+}
+.lensx-bar {
+  height: 8px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+.lensx-bar i {
+  display: block;
+  height: 100%;
+  width: var(--w, 0%);
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--iris-1), var(--iris-2));
+  box-shadow: 0 0 14px rgba(74, 240, 184, 0.45);
+  transition: width 1.15s var(--ease-out);
+}
+/* bars grow when the panel's [data-fx] reveal fires (gated on .sangam-fx so
+   they're always full-width without JS); rows stagger slightly */
+.sangam-fx .lensx-dims__panel:not(.fx-in) .lensx-bar i { width: 0; }
+.lensx-dim:nth-child(2) .lensx-bar i { transition-delay: 0.07s; }
+.lensx-dim:nth-child(3) .lensx-bar i { transition-delay: 0.14s; }
+.lensx-dim:nth-child(4) .lensx-bar i { transition-delay: 0.21s; }
+.lensx-dim:nth-child(5) .lensx-bar i { transition-delay: 0.28s; }
+.lensx-dim:nth-child(6) .lensx-bar i { transition-delay: 0.35s; }
+.lensx-dim:nth-child(7) .lensx-bar i { transition-delay: 0.42s; }
+.lensx-dim__val {
+  font-family: ui-monospace, 'SF Mono', 'Menlo', monospace;
+  font-size: 12.5px;
+  text-align: right;
+  color: var(--mint);
+  font-variant-numeric: tabular-nums;
+}
+.lensx-dims__note {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.42);
+  font-style: italic;
+  margin-top: 24px;
+}
+
+/* ============================ steps ============================ */
+.lensx-steps__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.lensx-step {
+  padding: 34px 30px;
+  transition: border-color 0.35s ease, box-shadow 0.5s var(--ease-out);
+}
+.lensx-step:hover {
+  border-color: rgba(74, 240, 184, 0.4);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5), 0 0 34px rgba(74, 240, 184, 0.1);
+}
+.lensx-step__num {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 1;
+  margin-bottom: 18px;
+}
+.lensx-step h3 { font-size: 17px; line-height: 1.3; }
+.lensx-step p {
+  font-size: 14px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.62);
+  margin-top: 12px;
+}
+
+/* ============================ privacy ============================ */
+.lensx-privacy { position: relative; overflow: hidden; }
+.lensx-privacy__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.22;
+}
+.lensx-privacy__overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(640px 340px at 50% 45%, rgba(74, 240, 184, 0.08), transparent 70%),
+    linear-gradient(180deg, var(--obsidian) 0%, rgba(10, 15, 13, 0.55) 45%, var(--obsidian) 100%);
+}
+.lensx-privacy__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 620px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.lensx-privacy__shield {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: var(--glass);
+  border: 1px solid rgba(74, 240, 184, 0.4);
+  box-shadow: 0 0 34px rgba(74, 240, 184, 0.22);
+  margin-bottom: 22px;
+}
+.lensx-privacy__inner .eyebrow { justify-content: center; }
+.lensx-privacy h2 {
+  font-size: clamp(24px, 3vw, 34px);
+  margin-top: 14px;
+}
+.lensx-privacy__body {
+  font-size: 15px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.66);
+  margin-top: 18px;
+}
+.lensx-privacy__disclaimer {
+  font-size: 12.5px;
+  color: rgba(255, 255, 255, 0.42);
+  margin-top: 20px;
+  font-style: italic;
+}
+
+/* ============================ CTA ============================ */
+.lensx-cta { padding: 24px 0 120px; }
+.lensx-cta__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 26px;
+  text-align: center;
+}
+.lensx-cta__inner .line-iris { width: 100%; max-width: 560px; margin: 0 0 26px; }
+.lensx-cta__note {
+  font-size: 14px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.55);
+  max-width: 480px;
+}
+
+/* ============================ responsive ============================ */
+@media (max-width: 980px) {
+  .lensx-hero { padding: 72px 0 84px; }
+  .lensx-hero__grid { grid-template-columns: 1fr; gap: 56px; }
+  .lensx-dims__panel { padding: 32px 26px 28px; }
+  .lensx-dim { grid-template-columns: 110px 1fr 48px; gap: 12px; }
+  .lensx-steps__grid { grid-template-columns: 1fr; max-width: 560px; }
+}
+@media (max-width: 640px) {
+  .lensx-hero { padding: 56px 0 68px; }
+  .lensx-dim__name { font-size: 12.5px; }
+  .lensx-dim { grid-template-columns: 92px 1fr 44px; }
+  .lensx-mock__chip--a { left: 6%; }
+  .lensx-mock__chip--b { right: 5%; }
+  .lensx-cta { padding: 8px 0 96px; }
+}
+
+/* reduced motion — page-local animations off, everything visible */
+@media (prefers-reduced-motion: reduce) {
+  .lensx-mock__scan { animation: none; top: 48%; }
+  .lensx-mock__chip--a, .lensx-mock__chip--b { animation: none; }
+  .lensx-mock__dot { animation: none; }
+  .lensx-bar i { transition: none; width: var(--w, 0%) !important; }
+  .sangam-fx .lensx-dims__panel:not(.fx-in) .lensx-bar i { width: var(--w, 0%); }
 }

@@ -4,7 +4,6 @@
   "quiz_pick_up_to": "Choose up to {{max}} — {{picked}} selected",
   "quiz_building": "Building your routine…",
   "quiz_start_over": "Start over",
-
   "result_eyebrow": "Your personalised routine",
   "result_title": "Your routine is ready",
   "result_sub": "{{count}} products, matched to your answers.",
@@ -17,12 +16,10 @@
   "result_catalog_cta": "Browse the full catalogue",
   "result_why_title": "Why these products",
   "result_why_body": "Every routine here passes through the same conflict engine as the app — no retinol layered with acids, nothing potent for beginners, nothing pregnancy-unsafe.",
-
   "note_retinoid": "Start 2 nights/week, build up as your skin adjusts.",
   "note_acid": "Use 2–3 nights per week; never layer with other exfoliants.",
   "note_potent": "Potent formula — introduce gradually and patch-test first.",
   "note_vitc": "Finish with SPF — vitamin C works best under sun protection.",
-
   "cat_eyebrow": "The apothecary",
   "cat_title": "Catalogue",
   "cat_search_ph": "Search products, actives…",
@@ -41,7 +38,6 @@
   "cat_concern_oil-control": "Oil control",
   "cat_concern_texture": "Texture",
   "cat_concern_hair-loss": "Hair loss",
-
   "prod_time_am": "Morning",
   "prod_time_pm": "Evening",
   "prod_time_both": "Morning · Evening",
@@ -57,13 +53,11 @@
   "prod_not_found_title": "Product not found",
   "prod_not_found_body": "This product isn't in the catalogue. Head back and browse the full range.",
   "prod_back_catalog": "Back to catalogue",
-
   "ing_eyebrow": "Ingredient intelligence",
   "ing_title": "Ingredient Glossary",
   "ing_sub": "50 active ingredients used across our 118 serums — what each one does, what it pairs with, and what to keep it away from.",
   "ing_search_ph": "Search ingredients…",
   "ing_caution_label": "Caution:",
-
   "about_eyebrow": "About Sangam Skin",
   "about_title": "The intelligence layer behind our serums.",
   "about_lede": "Sangam Herbals has formulated Ayurvedic skincare for years. Sangam Skin is how we help you actually find the right formulas — the quiz, the ingredient-safety engine, and this website, all built to make our range easy to navigate honestly.",
@@ -80,7 +74,6 @@
   "about_disclaimer_title": "Cosmetic disclaimer",
   "about_disclaimer_p1": "Sangam Skin — the quiz, Skin Lens, the ingredient glossary, and every recommendation on this site — provides cosmetic guidance only. It is not a substitute for professional medical or dermatological advice, diagnosis, or treatment.",
   "about_disclaimer_p2": "If you have a persistent skin concern, a known allergy, or are pregnant or breastfeeding, please consult a qualified healthcare provider before starting a new active ingredient.",
-
   "lens_dims_label": "Sample reading",
   "lens_dim_hydration": "Hydration",
   "lens_dim_texture": "Texture",
@@ -100,14 +93,12 @@
   "lens_privacy_body": "Your photo is sent for a single analysis request and is not stored on our servers afterward. Skin Lens never diagnoses a medical condition — it's a cosmetic, wellness-oriented read only.",
   "lres_disclaimer_photo": "This is a cosmetic read that reflects your photo and its lighting today — not a measurement of your skin.",
   "lens_availability": "Skin Lens is part of the Sangam Skin app (in development). In the meantime, the quiz below uses the same recommendation engine.",
-
   "nav_quiz": "Skin Quiz",
   "nav_catalog": "Catalogue",
   "nav_ingredients": "Ingredients",
   "nav_about": "About",
   "nav_cta": "Take the quiz",
   "nav_lens": "Skin Lens",
-
   "footer_tagline": "Ayurvedic serums, matched to your skin by an ingredient-safety engine.",
   "footer_explore": "Explore",
   "footer_company": "Company",
@@ -117,7 +108,6 @@
   "footer_app_note": "The Sangam Skin app is currently in development. This website carries the same quiz and product intelligence.",
   "footer_rights": "All rights reserved.",
   "footer_disclaimer": "Cosmetic guidance only — not medical advice.",
-
   "hero_eyebrow": "Sangam Herbals",
   "hero_title": "Ayurvedic serums, matched to your skin.",
   "hero_sub": "118 clinically-formulated serums for face, hair, lips and lashes — narrowed to your exact routine by a two-minute quiz and an ingredient-safety engine that never lets a retinol meet an acid by accident.",
@@ -132,7 +122,6 @@
   "hero_card_note": "4 of 6 questions answered",
   "hero_float_badge": "Conflict-checked",
   "hero_float_title": "Retinol kept out of your AM routine",
-
   "how_eyebrow": "How it works",
   "how_title": "From quiz to routine in four steps",
   "how_sub": "The same recommendation engine that powers the Sangam Skin app, running right here in your browser.",
@@ -144,7 +133,6 @@
   "how_3_body": "Every routine is run through a conflict engine — no retinol layered with acids, no potent actives for beginners, nothing pregnancy-unsafe.",
   "how_4_title": "Understand why",
   "how_4_body": "Each product links to the actives inside it, in plain language — what it does, how to use it, what to avoid it with.",
-
   "lens_eyebrow": "Skin Lens",
   "lens_title": "A gentle, AI-powered read of your skin.",
   "lens_body": "Take a selfie and get a cosmetic reading across seven dimensions — hydration, texture, radiance, evenness and more — with strengths named before anything else. It's a wellness guide, never a diagnosis.",
@@ -153,11 +141,9 @@
   "lens_point_3": "Your photo stays on your device except for the single analysis request",
   "lens_cta": "See how Skin Lens works",
   "lens_mock_score_label": "Glow score",
-
   "featured_eyebrow": "The apothecary",
   "featured_title": "A first look at the range",
   "featured_see_all": "See all 118 →",
-
   "science_eyebrow": "Ingredient intelligence",
   "science_title": "Every active, explained honestly.",
   "science_body": "No miracle claims. Our 50-ingredient glossary tells you what each active actually does, what it pairs well with, and what to keep it away from — the same data our conflict engine uses to build your routine.",
@@ -171,14 +157,36 @@
   "pill_ceramides": "Ceramides",
   "pill_azelaic": "Azelaic Acid",
   "pill_spf": "SPF Filters",
-
   "founder_quote": "We built Sangam Skin the way we'd want it built for our own family — honest ingredient lists, no filler, and a routine that respects that everyone's skin gets there differently.",
   "founder_name": "The Sangam Herbals team",
   "founder_role": "Formulators, India",
-
   "appcta_eyebrow": "Take it further",
   "appcta_title": "Your routine, wherever you are.",
   "appcta_body": "Everything on this site — the quiz, the catalogue, Skin Lens — runs in the Sangam Skin app too, with progress tracking, reminders and a saved routine.",
   "appcta_cta_web": "Start on the web instead",
-  "appcta_soon": "iOS & Android app — in development"
+  "appcta_soon": "iOS & Android app — in development",
+  "trust_eyebrow": "The science layer",
+  "trust_title": "Formulated openly. Checked by an engine.",
+  "trust_body": "Every routine we recommend passes through the same conflict engine as the Sangam Skin app — real formulation rules, applied automatically.",
+  "trust_row_engine_title": "20 formulation conflict rules",
+  "trust_row_engine_body": "Encoded from real dermatology guidance — retinoids never meet acids, actives never clash by accident.",
+  "hero_stat_dimensions": "skin dimensions read",
+  "quiz_eyebrow": "Personal diagnostic",
+  "quiz_back": "Back",
+  "cat_sub": "Every formula in the Sangam range — searchable, filterable, honest.",
+  "cat_stat_rules": "conflict rules",
+  "cat_filter_category": "Category",
+  "cat_filter_concern": "Concern",
+  "prod_quiz_sub": "Two minutes, nine questions — the engine builds your routine around your skin.",
+  "lens_dims_title": "Seven dimensions, one honest read",
+  "lens_how_title": "How a scan works",
+  "lens_mock_caption": "Illustrative interface",
+  "lens_privacy_eyebrow": "Privacy by design",
+  "about_stat_questions": "quiz questions",
+  "about_stat_rules": "conflict rules",
+  "about_img_alt_hero": "Woman applying skincare in bright natural light",
+  "about_img_alt_story": "Mortar and pestle with dried herbs",
+  "ing_stat_actives": "active ingredients",
+  "ing_stat_families": "ingredient families",
+  "ing_stat_serums": "serums powered"
 }

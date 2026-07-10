@@ -8,10 +8,9 @@
 <link rel="icon" href="/assets/images/favicon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700&family=Inter:wght@400;500;600;700&family=PT+Serif:ital@1&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/tokens.css" />
 <link rel="stylesheet" href="/assets/css/site.css" />
-<link rel="stylesheet" href="/assets/css/home.css" />
 <link rel="stylesheet" href="/assets/css/catalog.css" />
 </head>
 <body>
@@ -19,33 +18,70 @@
 <div id="site-header" data-active="catalog"></div>
 
 <main class="catalog">
-  <div class="container">
-    <div class="catalog__head reveal in">
-      <p class="eyebrow" data-i18n="cat_eyebrow"></p>
-      <h1 data-i18n="cat_title"></h1>
+
+  <!-- ============ compact dark hero band ============ -->
+  <section class="catalog-hero section--dark">
+    <div class="fx-aurora" aria-hidden="true"></div>
+    <div class="container catalog-hero__inner">
+      <p class="eyebrow" data-fx="up" data-i18n="cat_eyebrow"></p>
+      <h1 data-fx="up" data-fx-delay="80" data-i18n="cat_title"></h1>
+      <p class="catalog-hero__sub" data-fx="up" data-fx-delay="160" data-i18n="cat_sub"></p>
+      <div class="catalog-hero__stats" data-fx="up" data-fx-delay="240">
+        <div class="catalog-hero__stat">
+          <strong data-countup="118">0</strong>
+          <span data-i18n="hero_stat_products"></span>
+        </div>
+        <div class="catalog-hero__stat">
+          <strong data-countup="50">0</strong>
+          <span data-i18n="hero_stat_actives"></span>
+        </div>
+        <div class="catalog-hero__stat">
+          <strong data-countup="20">0</strong>
+          <span data-i18n="cat_stat_rules"></span>
+        </div>
+      </div>
+    </div>
+    <hr class="line-iris catalog-hero__line" aria-hidden="true" />
+  </section>
+
+  <!-- ============ light body: sticky filter bar + grid ============ -->
+  <section class="catalog-body section--light">
+
+    <div class="catalog-bar">
+      <div class="container catalog-bar__inner">
+        <div class="catalog__search">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M21 21l-4.3-4.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <input type="text" id="catalog-search" data-i18n-attr="placeholder:cat_search_ph,aria-label:cat_search_ph" />
+        </div>
+        <div class="catalog__filters">
+          <div class="catalog__filter-group">
+            <span class="catalog__filter-label" data-i18n="cat_filter_category"></span>
+            <div class="catalog__filter-row" id="catalog-categories"></div>
+          </div>
+          <div class="catalog__filter-group">
+            <span class="catalog__filter-label" data-i18n="cat_filter_concern"></span>
+            <div class="catalog__filter-row" id="catalog-concerns"></div>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="catalog__search">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M21 21l-4.3-4.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-      <input type="text" id="catalog-search" data-i18n-attr="placeholder:cat_search_ph" />
+    <div class="container">
+      <div class="catalog__count-row">
+        <span class="catalog__count" id="catalog-count"></span>
+        <button class="catalog__clear" id="catalog-clear" type="button" data-i18n="cat_clear" hidden></button>
+      </div>
+
+      <div class="product-grid catalog__grid" id="catalog-grid"></div>
+
+      <div class="catalog__empty" id="catalog-empty" hidden>
+        <svg width="44" height="44" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M21 21l-4.3-4.3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M8.5 11h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <p data-i18n="cat_empty_title"></p>
+        <button class="btn btn--outline btn--sm" id="catalog-empty-clear" data-i18n="cat_clear"></button>
+      </div>
     </div>
 
-    <div class="catalog__filters">
-      <div class="catalog__filter-row" id="catalog-categories"></div>
-      <div class="catalog__filter-row" id="catalog-concerns"></div>
-    </div>
-
-    <div class="catalog__count-row">
-      <span class="catalog__count" id="catalog-count"></span>
-      <button class="catalog__clear" id="catalog-clear" type="button" data-i18n="cat_clear" hidden></button>
-    </div>
-
-    <div class="product-grid catalog__grid" id="catalog-grid"></div>
-    <div class="catalog__empty" id="catalog-empty" hidden>
-      <p data-i18n="cat_empty_title"></p>
-      <button class="btn btn--outline btn--sm" id="catalog-empty-clear" data-i18n="cat_clear"></button>
-    </div>
-  </div>
+  </section>
 </main>
 
 <div id="site-footer"></div>
@@ -53,8 +89,8 @@
 <script src="/data/products.js"></script>
 <script src="/assets/js/i18n.js"></script>
 <script src="/assets/js/chrome.js"></script>
-<script src="/assets/js/reveal.js"></script>
 <script src="/assets/js/product-card.js"></script>
 <script src="/assets/js/catalog.js"></script>
+<script src="/assets/js/fx.js"></script>
 </body>
 </html>

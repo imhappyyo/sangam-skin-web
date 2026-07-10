@@ -1,76 +1,121 @@
-/* Sangam Skin — design tokens. Ported from the app's bloom palette
- * (src/theme/palettes.ts) so the website and the app read as one brand. */
+/* ============================================================================
+   Sangam Skin — BIO-LUXE FUTURIST design tokens
+   Dark-lab luxury: obsidian sections + luminous mint bio-glow + clinical
+   porcelain light sections. Pages consume these custom props + utilities;
+   motion keyframes for fx.js (SangamFX) live at the bottom of this file.
+   Fonts (pages own their own <link>):
+     Display  'Unbounded' 500/600/700 (has Cyrillic)
+     Body/UI  'Inter' 400/500/600/700
+     Editorial accent 'PT Serif' italic (founder quote only)
+   ========================================================================== */
+
 :root {
-  /* brand */
-  --green: #1F4A35;
-  --green-dark: #143526;
+  /* ---- core palette ---- */
+  --obsidian: #0A0F0D;        /* near-black green — dark section bg */
+  --deep: #0F1B16;            /* dark elevated surface */
+  --glass: rgba(255, 255, 255, 0.06);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --mint: #4AF0B8;            /* luminous bio-glow accent */
+  --iris-1: #4AF0B8;
+  --iris-2: #6BD5E1;
+  --iris-3: #B5A8F0;
+  --porcelain: #F7F5F1;       /* light section bg — cool, clinical */
+  --paper: #FFFFFF;           /* light cards */
+  --ink: #0F1613;
+  --ink-soft: #5A6660;
+  --green: #1F4A35;           /* brand deep green — light-section CTAs */
+  --champagne: #D8B45A;       /* refined gold, sparing */
+  --line-l: #E5E2DB;          /* hairlines on light */
+  --line-d: rgba(255, 255, 255, 0.1);  /* hairlines on dark */
+
+  /* ---- legacy aliases (old page CSS still reads these during transition;
+          remapped into the new palette so nothing renders broken) ---- */
+  --green-dark: #0F2A1E;
   --green-soft: #2D6A4B;
-  --sage: #E7EDDF;
-  --gold: #C9A227;
-  --gold-soft: #EBDFC2;
+  --sage: #E7F0E9;
+  --gold: var(--champagne);
+  --gold-soft: #EFE4C6;
+  --accent: var(--green);
+  --accent-dark: #143627;
+  --accent-soft: #BFE8D6;
+  --accent-bg: #E9F4EE;
+  --rose: var(--iris-3);
+  --bg: var(--porcelain);
+  --surface: var(--paper);
+  --cream: #F1EEE7;
+  --ink-faint: #8B958F;
+  --line: var(--line-l);
+  --line-mid: #D8D4CA;
 
-  /* accent — Mocha Mousse warm mocha-rose */
-  --accent: #A47764;
-  --accent-dark: #7E564A;
-  --accent-soft: #E7C6BA;
-  --accent-bg: #F6E9E0;
-  --rose: #C99089;
-
-  /* neutrals */
-  --bg: #FAF4ED;
-  --surface: #FFFFFF;
-  --cream: #F6E9E0;
-  --ink: #2E211C;
-  --ink-soft: #6A574E;
-  --ink-faint: #A08D82;
-  --line: #EDDDD3;
-  --line-mid: #DCC8BB;
-
-  /* semantic */
-  --ok: #7D9270;
+  /* ---- semantic ---- */
+  --ok: #1E8A5C;
   --warn: #B7791F;
-  --danger: #B4574E;
-  --ok-bg: #EDF2E8;
+  --danger: #C05248;
+  --ok-bg: #E4F5EC;
 
-  /* AM/PM */
-  --am: #C99B4A;
-  --am-bg: #FBF3E4;
-  --pm: #A98F9D;
-  --pm-bg: #F3E8E6;
+  /* ---- AM/PM (cooled to the clinical palette) ---- */
+  --am: #B9892E;
+  --am-bg: #F7EFDC;
+  --pm: #7C6FB0;
+  --pm-bg: #EEEBF7;
 
-  /* type */
-  --font-serif: 'PT Serif', Georgia, serif;
+  /* ---- type ---- */
+  --font-display: 'Unbounded', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-serif: 'PT Serif', Georgia, serif;   /* founder quote / legacy */
 
-  /* layout */
-  --max-width: 1240px;
+  /* ---- layout ---- */
+  --max-width: 1280px;
   --radius-sm: 10px;
   --radius-md: 16px;
   --radius-lg: 24px;
+  --radius-xl: 32px;
   --radius-full: 999px;
-  --shadow-card: 0 8px 32px rgba(31, 74, 53, 0.06);
-  --shadow-raised: 0 16px 48px rgba(31, 74, 53, 0.10);
+
+  /* ---- shadows ---- */
+  --shadow-card: 0 10px 40px rgba(10, 15, 13, 0.07);
+  --shadow-raised: 0 24px 64px rgba(10, 15, 13, 0.13);
+  --shadow-glow: 0 0 32px rgba(74, 240, 184, 0.35);
+  --shadow-glow-strong: 0 8px 44px rgba(74, 240, 184, 0.5);
+
+  /* ---- motion ---- */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 
   color-scheme: light;
 }
 
+/* ============================ base ============================ */
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body {
   margin: 0;
-  background: var(--bg);
+  background: var(--porcelain);
   color: var(--ink);
   font-family: var(--font-sans);
   font-size: 16px;
-  line-height: 1.5;
+  line-height: 1.55;
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
-h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 700; margin: 0; line-height: 1.15; }
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+}
 p { margin: 0; }
 a { color: inherit; text-decoration: none; }
 img { max-width: 100%; display: block; }
 button { font-family: inherit; cursor: pointer; }
 ul { margin: 0; padding: 0; list-style: none; }
+
+::selection { background: var(--mint); color: var(--obsidian); }
+:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; border-radius: 4px; }
+.section--dark :focus-visible,
+.theme-dark :focus-visible,
+.header :focus-visible,
+.footer :focus-visible { outline-color: var(--mint); }
 
 .container {
   max-width: var(--max-width);
@@ -78,63 +123,195 @@ ul { margin: 0; padding: 0; list-style: none; }
   padding: 0 32px;
 }
 
-.eyebrow {
-  font-family: var(--font-sans);
-  font-weight: 600;
-  font-size: 12px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--gold);
+/* ============================ section modes ============================ */
+/* Dark lab sections vs porcelain clinical sections. Pages combine these with
+   .section (padding rhythm lives in site.css). */
+.section--dark {
+  position: relative;
+  background: var(--obsidian);
+  color: rgba(255, 255, 255, 0.92);
+}
+.section--dark h1, .section--dark h2, .section--dark h3, .section--dark h4 { color: #fff; }
+.section--light {
+  position: relative;
+  background: var(--porcelain);
+  color: var(--ink);
 }
 
+/* ============================ utilities ============================ */
+/* Glass card — for use over dark/aurora backgrounds */
+.glass {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  -webkit-backdrop-filter: blur(14px) saturate(1.25);
+  backdrop-filter: blur(14px) saturate(1.25);
+  border-radius: var(--radius-lg);
+}
+
+/* Iridescent text gradient */
+.text-iris {
+  background: linear-gradient(100deg, var(--iris-1) 0%, var(--iris-2) 48%, var(--iris-3) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Iridescent hairline (accent rules, dividers) */
+.line-iris {
+  height: 1px;
+  border: none;
+  background: linear-gradient(90deg, transparent, var(--iris-1), var(--iris-2), var(--iris-3), transparent);
+  opacity: 0.65;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 11.5px;
+  letter-spacing: 2.6px;
+  text-transform: uppercase;
+  color: var(--champagne);
+}
+.eyebrow::before {
+  content: '';
+  width: 22px;
+  height: 1px;
+  background: currentColor;
+  flex-shrink: 0;
+  opacity: 0.8;
+}
+.section--dark .eyebrow,
+.theme-dark .eyebrow { color: var(--mint); }
+
+/* ============================ buttons ============================ */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 10px;
   height: 56px;
   padding: 0 32px;
   border-radius: var(--radius-full);
   font-family: var(--font-sans);
   font-weight: 600;
   font-size: 15px;
+  letter-spacing: 0.2px;
   border: none;
-  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  white-space: nowrap;
+  transition:
+    transform 0.45s var(--ease-out),
+    box-shadow 0.45s var(--ease-out),
+    background 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease;
 }
-.btn:hover { transform: translateY(-1px); }
-.btn:active { transform: translateY(0); }
+.btn:hover { transform: translateY(-2px); }
+.btn:active { transform: translateY(0) scale(0.98); }
+
+/* primary — solid brand green on light sections … */
 .btn--primary { background: var(--green); color: #fff; }
-.btn--primary:hover { background: var(--green-dark); box-shadow: var(--shadow-raised); }
-.btn--outline { background: transparent; color: var(--ink); border: 1.5px solid var(--line-mid); }
-.btn--outline:hover { border-color: var(--green); }
-.btn--accent { background: var(--accent); color: #fff; }
-.btn--accent:hover { background: var(--accent-dark); box-shadow: var(--shadow-raised); }
+.btn--primary:hover { background: #27593F; box-shadow: var(--shadow-raised); }
+/* …and luminous mint on dark contexts (add .fx-glow-pulse for the pulse) */
+.section--dark .btn--primary,
+.theme-dark .btn--primary,
+.header .btn--primary,
+.footer .btn--primary,
+.btn--primary.btn--on-dark {
+  background: var(--mint);
+  color: var(--obsidian);
+}
+.section--dark .btn--primary:hover,
+.theme-dark .btn--primary:hover,
+.header .btn--primary:hover,
+.footer .btn--primary:hover,
+.btn--primary.btn--on-dark:hover {
+  background: #63F5C5;
+  box-shadow: var(--shadow-glow-strong);
+}
+
+/* accent — iridescent bio-gradient, reads on light AND dark */
+.btn--accent {
+  background: linear-gradient(115deg, var(--iris-1), var(--iris-2) 60%, var(--iris-3) 130%);
+  color: var(--obsidian);
+}
+.btn--accent:hover { box-shadow: var(--shadow-glow); }
+
+/* outline / ghost */
+.btn--outline { background: transparent; color: var(--ink); border: 1px solid var(--line-mid); }
+.btn--outline:hover { border-color: var(--green); color: var(--green); }
+.section--dark .btn--outline,
+.theme-dark .btn--outline,
+.header .btn--outline,
+.footer .btn--outline {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.28);
+}
+.section--dark .btn--outline:hover,
+.theme-dark .btn--outline:hover,
+.header .btn--outline:hover,
+.footer .btn--outline:hover {
+  border-color: var(--mint);
+  color: var(--mint);
+}
+.btn--ghost { background: transparent; color: inherit; padding: 0 12px; }
+.btn--ghost:hover { color: var(--green); transform: none; }
+.section--dark .btn--ghost:hover,
+.theme-dark .btn--ghost:hover { color: var(--mint); }
+
 .btn--sm { height: 44px; padding: 0 22px; font-size: 13.5px; }
 
+/* ============================ chips ============================ */
 .chip {
   display: inline-flex;
   align-items: center;
   height: 38px;
   padding: 0 18px;
   border-radius: var(--radius-full);
-  border: 1px solid var(--line);
-  background: var(--surface);
+  border: 1px solid var(--line-l);
+  background: var(--paper);
   font-size: 13.5px;
   font-weight: 500;
   color: var(--ink);
-  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
   white-space: nowrap;
 }
-.chip:hover { border-color: var(--line-mid); }
+.chip:hover { border-color: var(--green); }
 .chip.is-active { background: var(--green); border-color: var(--green); color: #fff; }
+.section--dark .chip,
+.theme-dark .chip {
+  background: var(--glass);
+  border-color: var(--glass-border);
+  color: rgba(255, 255, 255, 0.82);
+}
+.section--dark .chip:hover,
+.theme-dark .chip:hover { border-color: rgba(74, 240, 184, 0.55); }
+.section--dark .chip.is-active,
+.theme-dark .chip.is-active {
+  background: var(--mint);
+  border-color: var(--mint);
+  color: var(--obsidian);
+  box-shadow: 0 0 18px rgba(74, 240, 184, 0.35);
+}
 
+/* ============================ cards ============================ */
 .card {
-  background: var(--surface);
-  border: 1px solid var(--line);
+  background: var(--paper);
+  border: 1px solid var(--line-l);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-card);
 }
+.section--dark .card,
+.theme-dark .card {
+  background: var(--deep);
+  border-color: var(--line-d);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+}
 
+/* ============================ badges ============================ */
 .badge {
   display: inline-flex;
   align-items: center;
@@ -143,19 +320,22 @@ ul { margin: 0; padding: 0; list-style: none; }
   border-radius: var(--radius-full);
   font-size: 10.5px;
   font-weight: 700;
-  letter-spacing: 0.6px;
+  letter-spacing: 0.8px;
   text-transform: uppercase;
 }
 .badge--am { background: var(--am-bg); color: var(--am); }
 .badge--pm { background: var(--pm-bg); color: var(--pm); }
 .badge--ok { background: var(--ok-bg); color: var(--ok); }
+.section--dark .badge--am, .theme-dark .badge--am { background: rgba(216, 180, 90, 0.14); color: #E9CE8E; }
+.section--dark .badge--pm, .theme-dark .badge--pm { background: rgba(181, 168, 240, 0.14); color: #C9BEF5; }
+.section--dark .badge--ok, .theme-dark .badge--ok { background: rgba(74, 240, 184, 0.12); color: var(--mint); }
 
 .visually-hidden {
   position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
-  overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+  overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
 }
 
-/* gradient monogram tile (packaging-free product visual — matches the app) */
+/* ============ gradient monogram tiles (packaging-free product visuals) ============ */
 .tile {
   border-radius: var(--radius-md);
   display: flex;
@@ -163,15 +343,197 @@ ul { margin: 0; padding: 0; list-style: none; }
   justify-content: center;
   position: relative;
   overflow: hidden;
-  font-family: var(--font-serif);
-  font-weight: 700;
+  font-family: var(--font-display);
+  font-weight: 600;
   color: #fff;
   flex-shrink: 0;
 }
-.tile--skin { background: linear-gradient(135deg, #DFE9DF, #F7F4EC); color: var(--green); }
-.tile--hair { background: linear-gradient(135deg, #1F4A35, #557E63); color: #F3EFE7; }
-.tile--lips { background: linear-gradient(135deg, #E9CFC2, #F8EDE6); color: #8C4A38; }
-.tile--lash { background: linear-gradient(135deg, #243B30, #3D5647); color: #E9DDBE; }
+.tile--skin { background: linear-gradient(135deg, #DBEAE1, #F4F7F3); color: var(--green); }
+.tile--hair { background: linear-gradient(135deg, #0F1B16, #2C5943); color: #CFF3E2; }
+.tile--lips { background: linear-gradient(135deg, #C7BCF3, #EFECFB); color: #4E4390; }
+.tile--lash { background: linear-gradient(135deg, #0A0F0D, #1F4A35); color: #9BEFD0; }
+
+/* ===========================================================================
+   MOTION GRAMMAR — consumed declaratively; fx.js (SangamFX) drives the JS
+   side. fx.js adds .sangam-fx to <html> on load, so nothing is ever hidden
+   when JS is absent.
+   ========================================================================== */
+
+/* ---- [data-fx] scroll reveals ---- */
+.sangam-fx [data-fx] {
+  opacity: 0;
+  transition:
+    opacity 0.7s var(--ease-out),
+    transform 0.7s var(--ease-out),
+    clip-path 0.7s var(--ease-out);
+  will-change: opacity, transform;
+}
+.sangam-fx [data-fx="up"]    { transform: translateY(28px); }
+.sangam-fx [data-fx="left"]  { transform: translateX(-36px); }
+.sangam-fx [data-fx="right"] { transform: translateX(36px); }
+.sangam-fx [data-fx="scale"] { transform: scale(0.92); }
+.sangam-fx [data-fx="clip"]  { transform: translateY(14px); clip-path: inset(0 0 100% 0); }
+.sangam-fx [data-fx].fx-in {
+  opacity: 1;
+  transform: none;
+  clip-path: inset(0 0 0 0);
+}
+
+/* ---- [data-tilt] sheen (JS drives --sheen-x/--sheen-y/--sheen-o) ---- */
+[data-tilt] {
+  position: relative;
+  transform-style: preserve-3d;
+}
+[data-tilt]::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  border-radius: inherit;
+  background: radial-gradient(
+    420px circle at var(--sheen-x, 50%) var(--sheen-y, 50%),
+    rgba(255, 255, 255, 0.16),
+    rgba(255, 255, 255, 0.04) 42%,
+    transparent 64%
+  );
+  opacity: var(--sheen-o, 0);
+  transition: opacity 0.5s ease;
+}
+.fx-tilt-off::after { display: none; }
+
+/* ---- marquee (fx.js duplicates the track content for a seamless loop and
+        adds --run; without JS the single copy just sits still) ---- */
+.fx-marquee {
+  overflow: hidden;
+  position: relative;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.fx-marquee__track {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  width: max-content;
+}
+.fx-marquee__seq {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.fx-marquee__track--run {
+  animation: fx-marquee var(--marquee-dur, 40s) linear infinite;
+}
+.fx-marquee:hover .fx-marquee__track--run { animation-play-state: paused; }
+@keyframes fx-marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ---- aurora — CSS-only drifting bio-glow (3 blurred blobs) ---- */
+.fx-aurora {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(64px) saturate(1.2);
+  opacity: 0.55;
+  background: radial-gradient(
+    clamp(280px, 38vw, 620px) clamp(220px, 30vw, 480px) at 70% 20%,
+    rgba(107, 213, 225, 0.22),
+    transparent 70%
+  );
+  animation: fx-aurora-c 18s ease-in-out infinite alternate;
+}
+.fx-aurora::before,
+.fx-aurora::after {
+  content: '';
+  position: absolute;
+  width: clamp(320px, 46vw, 720px);
+  height: clamp(320px, 46vw, 720px);
+  border-radius: 50%;
+}
+.fx-aurora::before {
+  left: -12%;
+  top: -18%;
+  background: radial-gradient(circle, rgba(74, 240, 184, 0.26), transparent 68%);
+  animation: fx-aurora-a 22s ease-in-out infinite alternate;
+}
+.fx-aurora::after {
+  right: -14%;
+  bottom: -24%;
+  background: radial-gradient(circle, rgba(181, 168, 240, 0.22), transparent 68%);
+  animation: fx-aurora-b 26s ease-in-out infinite alternate;
+}
+@keyframes fx-aurora-a {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to   { transform: translate3d(18%, 14%, 0) scale(1.18); }
+}
+@keyframes fx-aurora-b {
+  from { transform: translate3d(0, 0, 0) scale(1.1); }
+  to   { transform: translate3d(-16%, -12%, 0) scale(0.94); }
+}
+@keyframes fx-aurora-c {
+  from { background-position: 0% 0%; }
+  to   { background-position: -22% 30%; }
+}
+
+/* ---- mint glow pulse for primary dark CTAs ---- */
+.fx-glow-pulse { animation: fx-glow 2.8s ease-in-out infinite; }
+@keyframes fx-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(74, 240, 184, 0), 0 0 22px rgba(74, 240, 184, 0.28); }
+  50%      { box-shadow: 0 0 0 6px rgba(74, 240, 184, 0.07), 0 0 44px rgba(74, 240, 184, 0.5); }
+}
+
+/* ---- periodic sheen sweep (decorative highlight for cards/CTAs) ---- */
+.fx-sheen { position: relative; overflow: hidden; }
+.fx-sheen::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -60%;
+  width: 55%;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.16), transparent);
+  transform: translateX(-120%) skewX(-18deg);
+  animation: fx-sheen-sweep 5.5s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes fx-sheen-sweep {
+  0%, 55% { transform: translateX(-120%) skewX(-18deg); }
+  100%    { transform: translateX(420%) skewX(-18deg); }
+}
+
+/* ============================ reduced motion ============================ */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .sangam-fx [data-fx], [data-fx] {
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+  }
+  .reveal { opacity: 1 !important; transform: none !important; }
+  .fx-marquee {
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+  .fx-marquee__track,
+  .fx-marquee__track--run {
+    animation: none !important;
+    width: auto;
+    flex-wrap: wrap;
+  }
+  .fx-aurora, .fx-aurora::before, .fx-aurora::after { animation: none !important; }
+  .fx-glow-pulse { animation: none !important; box-shadow: 0 0 22px rgba(74, 240, 184, 0.28); }
+  .fx-sheen::before { display: none; }
+  [data-tilt]::after { display: none; }
+}
 
 @media (max-width: 860px) {
   .container { padding: 0 20px; }

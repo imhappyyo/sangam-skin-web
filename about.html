@@ -8,7 +8,7 @@
 <link rel="icon" href="/assets/images/favicon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700&family=Inter:wght@400;500;600;700&family=PT+Serif:ital@1&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/tokens.css" />
 <link rel="stylesheet" href="/assets/css/site.css" />
 <link rel="stylesheet" href="/assets/css/about.css" />
@@ -17,55 +17,139 @@
 
 <div id="site-header" data-active="about"></div>
 
-<main class="about">
-  <div class="container about__hero reveal in">
-    <p class="eyebrow" data-i18n="about_eyebrow"></p>
-    <h1 data-i18n="about_title"></h1>
-    <p class="about__lede" data-i18n="about_lede"></p>
-  </div>
+<main class="aboutx">
 
-  <div class="container about__body">
-    <section class="about__block reveal">
-      <h2 data-i18n="about_story_title"></h2>
-      <p data-i18n="about_story_p1"></p>
-      <p data-i18n="about_story_p2"></p>
-    </section>
-
-    <section class="about__block reveal">
-      <h2 data-i18n="about_approach_title"></h2>
-      <div class="about__grid">
-        <div>
-          <h3 data-i18n="about_approach_1_title"></h3>
-          <p data-i18n="about_approach_1_body"></p>
-        </div>
-        <div>
-          <h3 data-i18n="about_approach_2_title"></h3>
-          <p data-i18n="about_approach_2_body"></p>
-        </div>
-        <div>
-          <h3 data-i18n="about_approach_3_title"></h3>
-          <p data-i18n="about_approach_3_body"></p>
+  <!-- ============ hero — editorial-clinical, light ============ -->
+  <section class="aboutx-hero section--light">
+    <div class="container aboutx-hero__grid">
+      <div class="aboutx-hero__copy">
+        <p class="eyebrow" data-fx="up" data-i18n="about_eyebrow"></p>
+        <h1 data-fx="up" data-fx-delay="80" data-i18n="about_title"></h1>
+        <p class="aboutx-lede" data-fx="up" data-fx-delay="160" data-i18n="about_lede"></p>
+        <div class="aboutx-stats" data-fx="up" data-fx-delay="240">
+          <div class="aboutx-stat">
+            <span class="aboutx-stat__num" data-countup="118">0</span>
+            <span class="aboutx-stat__label" data-i18n="hero_stat_products"></span>
+          </div>
+          <div class="aboutx-stat">
+            <span class="aboutx-stat__num" data-countup="50">0</span>
+            <span class="aboutx-stat__label" data-i18n="hero_stat_actives"></span>
+          </div>
+          <div class="aboutx-stat">
+            <span class="aboutx-stat__num" data-countup="20">0</span>
+            <span class="aboutx-stat__label" data-i18n="about_stat_rules"></span>
+          </div>
+          <div class="aboutx-stat">
+            <span class="aboutx-stat__num" data-countup="9">0</span>
+            <span class="aboutx-stat__label" data-i18n="about_stat_questions"></span>
+          </div>
         </div>
       </div>
-    </section>
+      <figure class="aboutx-hero__media" data-fx="scale" data-fx-delay="140">
+        <img src="/assets/images/photos/application.jpg" data-i18n-attr="alt:about_img_alt_hero" alt="" />
+        <span class="aboutx-hero__media-glow" aria-hidden="true"></span>
+      </figure>
+    </div>
+  </section>
 
-    <section class="about__block about__disclaimer reveal" id="disclaimer">
-      <h2 data-i18n="about_disclaimer_title"></h2>
-      <p data-i18n="about_disclaimer_p1"></p>
-      <p data-i18n="about_disclaimer_p2"></p>
-    </section>
+  <!-- ============ story ============ -->
+  <section class="aboutx-story section--light">
+    <div class="container aboutx-story__grid">
+      <figure class="aboutx-story__media" data-fx="left">
+        <img src="/assets/images/photos/herbs-ayurveda.jpg" loading="lazy" data-i18n-attr="alt:about_img_alt_story" alt="" />
+      </figure>
+      <div class="aboutx-story__copy" data-fx="right" data-fx-delay="100">
+        <h2 data-i18n="about_story_title"></h2>
+        <p data-i18n="about_story_p1"></p>
+        <p data-i18n="about_story_p2"></p>
+      </div>
+    </div>
+  </section>
 
-    <section class="about__cta reveal">
-      <a class="btn btn--primary" href="/quiz.html" data-i18n="hero_cta_quiz"></a>
-      <a class="btn btn--outline" href="https://sangamherbals.com" target="_blank" rel="noopener" data-i18n="footer_main_site"></a>
-    </section>
-  </div>
+  <!-- ============ what we optimise for — glass cards, mint icons ============ -->
+  <section class="aboutx-approach">
+    <div class="container">
+      <h2 class="aboutx-approach__title" data-fx="up" data-i18n="about_approach_title"></h2>
+      <div class="aboutx-cards">
+
+        <article class="aboutx-card" data-fx="up" data-fx-delay="0">
+          <span class="aboutx-card__icon" aria-hidden="true">
+            <!-- honest ingredient lists: labelled list -->
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <rect x="4" y="3" width="16" height="18" rx="3" stroke="#4AF0B8" stroke-width="1.6"/>
+              <path d="M8 8.5h8M8 12h8M8 15.5h5" stroke="#4AF0B8" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+          </span>
+          <h3 data-i18n="about_approach_1_title"></h3>
+          <p data-i18n="about_approach_1_body"></p>
+        </article>
+
+        <article class="aboutx-card" data-fx="up" data-fx-delay="110">
+          <span class="aboutx-card__icon" aria-hidden="true">
+            <!-- safety before results: shield + check -->
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M12 3l7 3v5.5c0 4.4-3 8-7 9.5-4-1.5-7-5.1-7-9.5V6l7-3z" stroke="#4AF0B8" stroke-width="1.6" stroke-linejoin="round"/>
+              <path d="M9 12l2.2 2.2L15.5 9.9" stroke="#4AF0B8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <h3 data-i18n="about_approach_2_title"></h3>
+          <p data-i18n="about_approach_2_body"></p>
+        </article>
+
+        <article class="aboutx-card" data-fx="up" data-fx-delay="220">
+          <span class="aboutx-card__icon" aria-hidden="true">
+            <!-- no filler routines: capped layers -->
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M4 8.5h16M4 12.5h16" stroke="#4AF0B8" stroke-width="1.6" stroke-linecap="round"/>
+              <path d="M4 16.5h9" stroke="#4AF0B8" stroke-width="1.6" stroke-linecap="round"/>
+              <path d="M16.5 16.5h3.5" stroke="#4AF0B8" stroke-width="1.6" stroke-linecap="round" stroke-dasharray="1.5 3"/>
+            </svg>
+          </span>
+          <h3 data-i18n="about_approach_3_title"></h3>
+          <p data-i18n="about_approach_3_body"></p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ cosmetic disclaimer — the trust block ============ -->
+  <section class="aboutx-trust section--light">
+    <div class="container">
+      <section class="aboutx-disclaimer" id="disclaimer" data-fx="up">
+        <span class="aboutx-disclaimer__icon" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+            <path d="M12 3l7 3v5.5c0 4.4-3 8-7 9.5-4-1.5-7-5.1-7-9.5V6l7-3z" stroke="#1F4A35" stroke-width="1.6" stroke-linejoin="round"/>
+            <path d="M12 8.5v4.5" stroke="#1F4A35" stroke-width="1.6" stroke-linecap="round"/>
+            <circle cx="12" cy="16" r="1" fill="#1F4A35"/>
+          </svg>
+        </span>
+        <div class="aboutx-disclaimer__body">
+          <h2 data-i18n="about_disclaimer_title"></h2>
+          <p data-i18n="about_disclaimer_p1"></p>
+          <p data-i18n="about_disclaimer_p2"></p>
+        </div>
+      </section>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <section class="aboutx-cta section--light">
+    <div class="container aboutx-cta__inner">
+      <hr class="line-iris" aria-hidden="true" />
+      <div class="aboutx-cta__btns" data-fx="up">
+        <a class="btn btn--primary" href="/quiz.html" data-i18n="hero_cta_quiz"></a>
+        <a class="btn btn--outline" href="https://sangamherbals.com" target="_blank" rel="noopener" data-i18n="footer_main_site"></a>
+      </div>
+    </div>
+  </section>
+
 </main>
 
 <div id="site-footer"></div>
 
 <script src="/assets/js/i18n.js"></script>
 <script src="/assets/js/chrome.js"></script>
-<script src="/assets/js/reveal.js"></script>
+<script src="/assets/js/fx.js"></script>
 </body>
 </html>

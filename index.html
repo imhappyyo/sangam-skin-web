@@ -8,7 +8,8 @@
 <link rel="icon" href="/assets/images/favicon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700&family=Inter:wght@400;500;600;700&family=PT+Serif:ital@1&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="/assets/images/photos/hero-serum.jpg" fetchpriority="high">
 <link rel="stylesheet" href="/assets/css/tokens.css" />
 <link rel="stylesheet" href="/assets/css/site.css" />
 <link rel="stylesheet" href="/assets/css/home.css" />
@@ -17,167 +18,275 @@
 
 <div id="site-header" data-active="home"></div>
 
-<!-- ============================= HERO ============================= -->
-<section class="hero">
-  <div class="hero__glow hero__glow--a"></div>
-  <div class="hero__glow hero__glow--b"></div>
+<!-- ============================= 1 · HERO (dark lab) ============================= -->
+<section class="hero section--dark">
+  <div class="fx-aurora" aria-hidden="true"></div>
+  <canvas class="hero__particles" data-particles data-particles-color="#4AF0B8" data-particles-count="55" aria-hidden="true"></canvas>
+
   <div class="container hero__inner">
-    <div class="hero__copy reveal in">
-      <p class="eyebrow" data-i18n="hero_eyebrow"></p>
-      <h1 data-i18n="hero_title"></h1>
-      <p class="hero__sub" data-i18n="hero_sub"></p>
-      <div class="hero__ctas">
-        <a class="btn btn--primary" href="/quiz.html" data-i18n="hero_cta_quiz"></a>
+    <div class="hero__copy">
+      <p class="eyebrow" data-fx="up" data-i18n="hero_eyebrow"></p>
+      <h1 class="hero__title" data-fx="up" data-fx-delay="90" data-i18n="hero_title"></h1>
+      <p class="hero__sub" data-fx="up" data-fx-delay="180" data-i18n="hero_sub"></p>
+      <div class="hero__ctas" data-fx="up" data-fx-delay="270">
+        <a class="btn btn--primary fx-glow-pulse" href="/quiz.html" data-i18n="hero_cta_quiz"></a>
         <a class="btn btn--outline" href="/catalog.html" data-i18n="hero_cta_catalog"></a>
       </div>
-      <div class="hero__stats">
-        <div><strong>118</strong><span data-i18n="hero_stat_products"></span></div>
-        <div><strong>50</strong><span data-i18n="hero_stat_actives"></span></div>
-        <div><strong>2<span class="hero__min" data-i18n="hero_stat_min"></span></strong><span data-i18n="hero_stat_quiz"></span></div>
+    </div>
+
+    <div class="hero__visual" data-fx="scale" data-fx-delay="200">
+      <figure class="hero__frame glass">
+        <img src="/assets/images/photos/hero-serum.jpg" alt="" width="1600" height="1201" fetchpriority="high" />
+      </figure>
+      <div class="hero__chip hero__chip--conflict glass">
+        <span class="badge badge--ok" data-i18n="hero_float_badge"></span>
+        <p data-i18n="hero_float_title"></p>
+      </div>
+      <div class="hero__chip hero__chip--score glass">
+        <strong data-countup="78">0</strong>
+        <span data-i18n="lens_mock_score_label"></span>
       </div>
     </div>
-    <div class="hero__visual reveal in">
-      <div class="hero__card hero__card--main">
-        <span class="eyebrow" data-i18n="hero_card_eyebrow"></span>
-        <p class="hero__card-title" data-i18n="hero_card_title"></p>
-        <div class="hero__ring">
-          <svg viewBox="0 0 100 100" width="88" height="88">
-            <circle cx="50" cy="50" r="42" fill="none" stroke="#EFE2D8" stroke-width="8"/>
-            <circle cx="50" cy="50" r="42" fill="none" stroke="#A47764" stroke-width="8"
-              stroke-dasharray="264" stroke-dashoffset="86" stroke-linecap="round" transform="rotate(-90 50 50)"/>
-          </svg>
-          <span>4/6</span>
-        </div>
-        <p class="hero__card-note" data-i18n="hero_card_note"></p>
-      </div>
-      <div class="hero__card hero__card--float">
-        <span class="badge badge--ok" data-i18n="hero_float_badge"></span>
-        <p class="hero__float-title" data-i18n="hero_float_title"></p>
-      </div>
+  </div>
+
+  <div class="container hero__stats" data-fx="up" data-fx-delay="340">
+    <div class="hero__stat">
+      <strong data-countup="118">0</strong>
+      <span data-i18n="hero_stat_products"></span>
+    </div>
+    <div class="hero__stat">
+      <strong data-countup="50">0</strong>
+      <span data-i18n="hero_stat_actives"></span>
+    </div>
+    <div class="hero__stat">
+      <strong data-countup="7">0</strong>
+      <span data-i18n="hero_stat_dimensions"></span>
+    </div>
+    <div class="hero__stat">
+      <strong><b data-countup="2">0</b><em class="hero__min" data-i18n="hero_stat_min"></em></strong>
+      <span data-i18n="hero_stat_quiz"></span>
     </div>
   </div>
 </section>
 
-<!-- ============================= HOW IT WORKS ============================= -->
-<section class="section how">
+<!-- ============================= 2 · INGREDIENT MARQUEE ============================= -->
+<section class="marquee-strip section--dark" aria-hidden="true">
+  <div id="ingredient-marquee"></div>
+</section>
+
+<!-- ============================= 3 · HOW IT WORKS (light) ============================= -->
+<section class="section how section--light">
   <div class="container">
-    <div class="section-head section-head--center reveal">
+    <div class="section-head section-head--center" data-fx="up">
       <p class="eyebrow" data-i18n="how_eyebrow"></p>
       <h2 data-i18n="how_title"></h2>
       <p data-i18n="how_sub"></p>
     </div>
     <div class="how__grid">
-      <div class="how__step reveal">
-        <div class="how__num">01</div>
+      <article class="how__step" data-fx="up">
+        <div class="how__num" aria-hidden="true">01</div>
         <h3 data-i18n="how_1_title"></h3>
         <p data-i18n="how_1_body"></p>
-      </div>
-      <div class="how__step reveal">
-        <div class="how__num">02</div>
+      </article>
+      <article class="how__step" data-fx="up" data-fx-delay="90">
+        <div class="how__num" aria-hidden="true">02</div>
         <h3 data-i18n="how_2_title"></h3>
         <p data-i18n="how_2_body"></p>
-      </div>
-      <div class="how__step reveal">
-        <div class="how__num">03</div>
+      </article>
+      <article class="how__step" data-fx="up" data-fx-delay="180">
+        <div class="how__num" aria-hidden="true">03</div>
         <h3 data-i18n="how_3_title"></h3>
         <p data-i18n="how_3_body"></p>
-      </div>
-      <div class="how__step reveal">
-        <div class="how__num">04</div>
+      </article>
+      <article class="how__step" data-fx="up" data-fx-delay="270">
+        <div class="how__num" aria-hidden="true">04</div>
         <h3 data-i18n="how_4_title"></h3>
         <p data-i18n="how_4_body"></p>
-      </div>
+      </article>
     </div>
   </div>
 </section>
 
-<!-- ============================= SKIN LENS ============================= -->
-<section class="section lens-teaser">
-  <div class="container lens-teaser__inner">
-    <div class="lens-teaser__visual reveal">
-      <div class="lens-mock">
-        <div class="lens-mock__scan"></div>
-        <svg class="lens-mock__frame" viewBox="0 0 200 260" width="200" height="260">
-          <rect x="4" y="4" width="192" height="252" rx="24" fill="none" stroke="#A47764" stroke-width="2" stroke-dasharray="6 6" opacity="0.5"/>
-        </svg>
-        <div class="lens-mock__score">
-          <span>78</span>
-          <small data-i18n="lens_mock_score_label"></small>
-        </div>
+<!-- ============================= 4 · SCIENCE / TRUST (dark) ============================= -->
+<section class="section trust section--dark">
+  <div class="container trust__inner">
+    <figure class="trust__visual" data-fx="left">
+      <div class="trust__frame glass">
+        <img src="/assets/images/photos/lab-science.jpg" alt="" loading="lazy" width="1066" height="1600" />
       </div>
+      <svg class="trust__molecule" viewBox="0 0 340 130" fill="none" aria-hidden="true">
+        <defs>
+          <linearGradient id="mol-grad" x1="0" y1="0" x2="340" y2="0" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#4AF0B8"/>
+            <stop offset="0.5" stop-color="#6BD5E1"/>
+            <stop offset="1" stop-color="#B5A8F0"/>
+          </linearGradient>
+        </defs>
+        <path pathLength="1" d="M22 62 L52 42 L82 62 L82 96 L52 116 L22 96 Z" stroke="url(#mol-grad)" stroke-width="1.4"/>
+        <path pathLength="1" d="M82 62 L120 40 L158 62 L196 40 L234 62 L272 40 L312 58" stroke="url(#mol-grad)" stroke-width="1.4"/>
+        <path pathLength="1" d="M120 40 L120 14 M196 40 L196 14 M272 40 L272 14" stroke="url(#mol-grad)" stroke-width="1.2"/>
+        <circle cx="52" cy="42" r="3.4"/><circle cx="82" cy="62" r="4.4"/><circle cx="52" cy="116" r="3"/>
+        <circle cx="120" cy="40" r="3.4"/><circle cx="158" cy="62" r="4"/><circle cx="196" cy="40" r="3.4"/>
+        <circle cx="234" cy="62" r="4"/><circle cx="272" cy="40" r="3.4"/><circle cx="312" cy="58" r="3"/>
+        <circle cx="120" cy="14" r="2.4"/><circle cx="196" cy="14" r="2.4"/><circle cx="272" cy="14" r="2.4"/>
+      </svg>
+    </figure>
+
+    <div class="trust__copy">
+      <p class="eyebrow" data-fx="up" data-i18n="trust_eyebrow"></p>
+      <h2 data-fx="up" data-fx-delay="80" data-i18n="trust_title"></h2>
+      <p class="trust__body" data-fx="up" data-fx-delay="160" data-i18n="trust_body"></p>
+      <ul class="trust__rows">
+        <li data-fx="up" data-fx-delay="120">
+          <span class="trust__check" aria-hidden="true"><svg viewBox="0 0 16 16"><path pathLength="1" d="M3 8.5 6.5 12 13 4.5"/></svg></span>
+          <div>
+            <h3 data-i18n="trust_row_engine_title"></h3>
+            <p data-i18n="trust_row_engine_body"></p>
+          </div>
+        </li>
+        <li data-fx="up" data-fx-delay="200">
+          <span class="trust__check" aria-hidden="true"><svg viewBox="0 0 16 16"><path pathLength="1" d="M3 8.5 6.5 12 13 4.5"/></svg></span>
+          <div>
+            <h3 data-i18n="about_approach_1_title"></h3>
+            <p data-i18n="about_approach_1_body"></p>
+          </div>
+        </li>
+        <li data-fx="up" data-fx-delay="280">
+          <span class="trust__check" aria-hidden="true"><svg viewBox="0 0 16 16"><path pathLength="1" d="M3 8.5 6.5 12 13 4.5"/></svg></span>
+          <div>
+            <h3 data-i18n="about_approach_2_title"></h3>
+            <p data-i18n="about_approach_2_body"></p>
+          </div>
+        </li>
+        <li data-fx="up" data-fx-delay="360">
+          <span class="trust__check" aria-hidden="true"><svg viewBox="0 0 16 16"><path pathLength="1" d="M3 8.5 6.5 12 13 4.5"/></svg></span>
+          <div>
+            <h3 data-i18n="about_approach_3_title"></h3>
+            <p data-i18n="about_approach_3_body"></p>
+          </div>
+        </li>
+      </ul>
     </div>
-    <div class="lens-teaser__copy reveal">
-      <p class="eyebrow" data-i18n="lens_eyebrow"></p>
-      <h2 data-i18n="lens_title"></h2>
-      <p data-i18n="lens_body"></p>
-      <ul class="lens-teaser__list">
+  </div>
+</section>
+
+<!-- ============================= 5 · SKIN LENS DEMO (dark) ============================= -->
+<section class="section lens-demo section--dark">
+  <div class="container lens-demo__inner">
+    <div class="lens-demo__copy">
+      <p class="eyebrow" data-fx="up" data-i18n="lens_eyebrow"></p>
+      <h2 data-fx="up" data-fx-delay="80" data-i18n="lens_title"></h2>
+      <p class="lens-demo__body" data-fx="up" data-fx-delay="160" data-i18n="lens_body"></p>
+      <ul class="lens-demo__points" data-fx="up" data-fx-delay="240">
         <li data-i18n="lens_point_1"></li>
         <li data-i18n="lens_point_2"></li>
         <li data-i18n="lens_point_3"></li>
       </ul>
-      <a class="btn btn--accent" href="/lens.html" data-i18n="lens_cta"></a>
+      <a class="btn btn--accent" href="/lens.html" data-fx="up" data-fx-delay="320" data-i18n="lens_cta"></a>
+    </div>
+
+    <div class="lens-demo__panel">
+      <figure class="lens-demo__face glass" data-fx="scale">
+        <img src="/assets/images/photos/face-glow.jpg" alt="" loading="lazy" width="1068" height="1600" />
+        <div class="lens-demo__scan" aria-hidden="true"></div>
+      </figure>
+      <div class="lens-demo__bars glass" data-fx="up" data-fx-delay="140">
+        <p class="lens-demo__label" data-i18n="lens_dims_label"></p>
+        <div class="lens-bar"><span data-i18n="lens_dim_hydration"></span><div class="lens-bar__track"><i style="--w:82%"></i></div></div>
+        <div class="lens-bar"><span data-i18n="lens_dim_texture"></span><div class="lens-bar__track"><i style="--w:74%"></i></div></div>
+        <div class="lens-bar"><span data-i18n="lens_dim_radiance"></span><div class="lens-bar__track"><i style="--w:80%"></i></div></div>
+        <div class="lens-bar"><span data-i18n="lens_dim_evenness"></span><div class="lens-bar__track"><i style="--w:68%"></i></div></div>
+        <div class="lens-bar"><span data-i18n="lens_dim_pores"></span><div class="lens-bar__track"><i style="--w:71%"></i></div></div>
+        <div class="lens-bar"><span data-i18n="lens_dim_redness"></span><div class="lens-bar__track"><i style="--w:85%"></i></div></div>
+        <div class="lens-bar"><span data-i18n="lens_dim_eye"></span><div class="lens-bar__track"><i style="--w:66%"></i></div></div>
+        <p class="lens-demo__note" data-i18n="lens_dims_note"></p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ============================= FEATURED PRODUCTS ============================= -->
-<section class="section featured">
+<!-- ============================= 6 · FEATURED PRODUCTS (light) ============================= -->
+<section class="section featured section--light">
   <div class="container">
-    <div class="section-head reveal" style="display:flex; align-items:flex-end; justify-content:space-between; max-width:none;">
+    <div class="section-head featured__head" data-fx="up">
       <div>
         <p class="eyebrow" data-i18n="featured_eyebrow"></p>
         <h2 data-i18n="featured_title"></h2>
       </div>
       <a class="btn btn--outline btn--sm" href="/catalog.html" data-i18n="featured_see_all"></a>
     </div>
+
+    <div class="featured__cats">
+      <a class="featured__cat" href="/catalog.html" data-fx="up">
+        <img src="/assets/images/photos/texture-gel.jpg" alt="" loading="lazy" width="1280" height="1600" />
+        <span data-i18n="cat_skin"></span>
+      </a>
+      <a class="featured__cat" href="/catalog.html" data-fx="up" data-fx-delay="80">
+        <img src="/assets/images/photos/botanical-macro.jpg" alt="" loading="lazy" width="1600" height="900" />
+        <span data-i18n="cat_hair"></span>
+      </a>
+      <a class="featured__cat" href="/catalog.html" data-fx="up" data-fx-delay="160">
+        <img src="/assets/images/photos/bottle-stone.jpg" alt="" loading="lazy" width="1066" height="1600" />
+        <span data-i18n="cat_lips"></span>
+      </a>
+      <a class="featured__cat" href="/catalog.html" data-fx="up" data-fx-delay="240">
+        <img src="/assets/images/photos/herbs-ayurveda.jpg" alt="" loading="lazy" width="1066" height="1600" />
+        <span data-i18n="cat_lash"></span>
+      </a>
+    </div>
+
     <div class="product-grid" id="featured-grid"></div>
   </div>
 </section>
 
-<!-- ============================= INGREDIENT SCIENCE ============================= -->
-<section class="section science">
+<!-- ============================= 7 · INGREDIENT INTELLIGENCE (light) ============================= -->
+<section class="section science section--light">
   <div class="container science__inner">
-    <div class="reveal">
+    <div class="science__copy" data-fx="up">
       <p class="eyebrow" data-i18n="science_eyebrow"></p>
       <h2 data-i18n="science_title"></h2>
       <p class="science__body" data-i18n="science_body"></p>
       <a class="btn btn--outline" href="/ingredients.html" data-i18n="science_cta"></a>
     </div>
-    <div class="science__pills reveal">
-      <span class="chip" data-i18n="pill_retinol"></span>
-      <span class="chip" data-i18n="pill_niacinamide"></span>
-      <span class="chip" data-i18n="pill_vitc"></span>
-      <span class="chip" data-i18n="pill_ha"></span>
-      <span class="chip" data-i18n="pill_peptides"></span>
-      <span class="chip" data-i18n="pill_bakuchiol"></span>
-      <span class="chip" data-i18n="pill_ceramides"></span>
-      <span class="chip" data-i18n="pill_azelaic"></span>
-      <span class="chip" data-i18n="pill_spf"></span>
+    <div class="science__side" data-fx="right" data-fx-delay="120">
+      <figure class="science__img">
+        <img src="/assets/images/photos/water-drop.jpg" alt="" loading="lazy" width="1600" height="796" />
+      </figure>
+      <div class="science__pills">
+        <span class="chip" data-i18n="pill_retinol"></span>
+        <span class="chip" data-i18n="pill_niacinamide"></span>
+        <span class="chip" data-i18n="pill_vitc"></span>
+        <span class="chip" data-i18n="pill_ha"></span>
+        <span class="chip" data-i18n="pill_peptides"></span>
+        <span class="chip" data-i18n="pill_bakuchiol"></span>
+        <span class="chip" data-i18n="pill_ceramides"></span>
+        <span class="chip" data-i18n="pill_azelaic"></span>
+        <span class="chip" data-i18n="pill_spf"></span>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ============================= FOUNDER NOTE ============================= -->
-<section class="section founder">
-  <div class="container founder__inner reveal">
-    <p class="founder__mark">"</p>
-    <p class="founder__quote" data-i18n="founder_quote"></p>
+<!-- ============================= 8 · FOUNDER QUOTE (dark band) ============================= -->
+<section class="section founder section--dark">
+  <img class="founder__bg" src="/assets/images/photos/leaves-dark.jpg" alt="" loading="lazy" width="1600" height="1067" aria-hidden="true" />
+  <div class="container founder__inner" data-fx="up">
+    <p class="founder__mark" aria-hidden="true">“</p>
+    <blockquote class="founder__quote" data-i18n="founder_quote"></blockquote>
     <p class="founder__name" data-i18n="founder_name"></p>
     <p class="founder__role" data-i18n="founder_role"></p>
   </div>
 </section>
 
-<!-- ============================= APP CTA ============================= -->
-<section class="section app-cta">
-  <div class="container app-cta__inner reveal">
-    <div>
-      <p class="eyebrow" data-i18n="appcta_eyebrow"></p>
-      <h2 data-i18n="appcta_title"></h2>
-      <p data-i18n="appcta_body"></p>
-      <div class="app-cta__ctas">
-        <a class="btn btn--primary" href="/quiz.html" data-i18n="appcta_cta_web"></a>
-        <span class="app-cta__soon" data-i18n="appcta_soon"></span>
-      </div>
+<!-- ============================= 9 · FINAL CTA (iridescent band) ============================= -->
+<section class="section appcta">
+  <div class="container appcta__inner" data-fx="up">
+    <p class="eyebrow" data-i18n="appcta_eyebrow"></p>
+    <h2 data-i18n="appcta_title"></h2>
+    <p class="appcta__body" data-i18n="appcta_body"></p>
+    <div class="appcta__ctas">
+      <a class="btn btn--primary" href="/quiz.html" data-i18n="appcta_cta_web"></a>
+      <span class="appcta__soon" data-i18n="appcta_soon"></span>
     </div>
   </div>
 </section>
@@ -189,8 +298,7 @@
 <script src="/data/conflicts.js"></script>
 <script src="/assets/js/i18n.js"></script>
 <script src="/assets/js/chrome.js"></script>
-<script src="/assets/js/reveal.js"></script>
-<script src="/assets/js/product-card.js"></script>
 <script src="/assets/js/home.js"></script>
+<script src="/assets/js/fx.js"></script>
 </body>
 </html>

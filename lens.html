@@ -8,78 +8,183 @@
 <link rel="icon" href="/assets/images/favicon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700&family=Inter:wght@400;500;600;700&family=PT+Serif:ital@1&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/tokens.css" />
 <link rel="stylesheet" href="/assets/css/site.css" />
-<link rel="stylesheet" href="/assets/css/home.css" />
 <link rel="stylesheet" href="/assets/css/lens.css" />
 </head>
-<body>
+<body class="theme-dark lensx-page">
 
 <div id="site-header" data-active=""></div>
 
-<main class="lens-page">
-  <div class="container lens-page__hero reveal in">
-    <p class="eyebrow" data-i18n="lens_eyebrow"></p>
-    <h1 data-i18n="lens_title"></h1>
-    <p class="lens-page__lede" data-i18n="lens_body"></p>
-  </div>
+<main class="lensx">
 
-  <div class="container lens-page__demo reveal">
-    <div class="lens-mock lens-mock--big">
-      <div class="lens-mock__scan"></div>
-      <svg class="lens-mock__frame" viewBox="0 0 200 260" width="220" height="286"><rect x="4" y="4" width="192" height="252" rx="24" fill="none" stroke="#A47764" stroke-width="2" stroke-dasharray="6 6" opacity="0.5"/></svg>
-      <div class="lens-mock__score"><span>78</span><small data-i18n="lens_mock_score_label"></small></div>
-    </div>
-    <div class="lens-page__dims">
-      <p class="lens-page__dims-label" data-i18n="lens_dims_label"></p>
-      <div class="lens-dim" data-dim="hydration"><span data-i18n="lens_dim_hydration"></span><div class="lens-dim__bar"><i style="width:82%"></i></div></div>
-      <div class="lens-dim" data-dim="texture"><span data-i18n="lens_dim_texture"></span><div class="lens-dim__bar"><i style="width:74%"></i></div></div>
-      <div class="lens-dim" data-dim="radiance"><span data-i18n="lens_dim_radiance"></span><div class="lens-dim__bar"><i style="width:80%"></i></div></div>
-      <div class="lens-dim" data-dim="evenness"><span data-i18n="lens_dim_evenness"></span><div class="lens-dim__bar"><i style="width:68%"></i></div></div>
-      <div class="lens-dim" data-dim="pores"><span data-i18n="lens_dim_pores"></span><div class="lens-dim__bar"><i style="width:71%"></i></div></div>
-      <div class="lens-dim" data-dim="redness"><span data-i18n="lens_dim_redness"></span><div class="lens-dim__bar"><i style="width:85%"></i></div></div>
-      <div class="lens-dim" data-dim="eye"><span data-i18n="lens_dim_eye"></span><div class="lens-dim__bar"><i style="width:66%"></i></div></div>
-      <p class="lens-page__dims-note" data-i18n="lens_dims_note"></p>
-    </div>
-  </div>
+  <!-- ============ hero — aurora + particles + glass phone mock ============ -->
+  <section class="lensx-hero section--dark">
+    <div class="fx-aurora" aria-hidden="true"></div>
+    <canvas class="lensx-hero__particles" data-particles data-particles-color="#4AF0B8" aria-hidden="true"></canvas>
+    <div class="container lensx-hero__grid">
 
-  <div class="container">
-    <div class="how__grid lens-page__how reveal">
-      <div class="how__step">
-        <div class="how__num">01</div>
-        <h3 data-i18n="lens_step_1_title"></h3>
-        <p data-i18n="lens_step_1_body"></p>
+      <div class="lensx-hero__copy">
+        <p class="eyebrow" data-fx="up" data-i18n="lens_eyebrow"></p>
+        <h1 data-fx="up" data-fx-delay="70" data-i18n="lens_title"></h1>
+        <p class="lensx-lede" data-fx="up" data-fx-delay="140" data-i18n="lens_body"></p>
+        <ul class="lensx-points" data-fx="up" data-fx-delay="210">
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4.5 12.5l5 5L19.5 7" stroke="#4AF0B8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span data-i18n="lens_point_1"></span>
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4.5 12.5l5 5L19.5 7" stroke="#4AF0B8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span data-i18n="lens_point_2"></span>
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4.5 12.5l5 5L19.5 7" stroke="#4AF0B8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span data-i18n="lens_point_3"></span>
+          </li>
+        </ul>
+        <div class="lensx-hero__cta" data-fx="up" data-fx-delay="280">
+          <a class="btn btn--primary fx-glow-pulse" href="/quiz.html" data-i18n="hero_cta_quiz"></a>
+        </div>
       </div>
-      <div class="how__step">
-        <div class="how__num">02</div>
-        <h3 data-i18n="lens_step_2_title"></h3>
-        <p data-i18n="lens_step_2_body"></p>
-      </div>
-      <div class="how__step">
-        <div class="how__num">03</div>
-        <h3 data-i18n="lens_step_3_title"></h3>
-        <p data-i18n="lens_step_3_body"></p>
-      </div>
-    </div>
 
-    <div class="lens-page__privacy reveal">
-      <h2 data-i18n="lens_privacy_title"></h2>
-      <p data-i18n="lens_privacy_body"></p>
-      <p class="lens-page__disclaimer" data-i18n="lres_disclaimer_photo"></p>
-    </div>
+      <div class="lensx-hero__mockwrap" data-fx="scale" data-fx-delay="180">
+        <div class="lensx-mock glass" data-tilt>
+          <img class="lensx-mock__face" src="/assets/images/photos/face-glow.jpg" alt="" aria-hidden="true" />
+          <div class="lensx-mock__tint" aria-hidden="true"></div>
+          <div class="lensx-mock__gridlines" aria-hidden="true"></div>
+          <div class="lensx-mock__corners" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+          <div class="lensx-mock__scan" aria-hidden="true"></div>
+          <div class="lensx-mock__chip lensx-mock__chip--a glass">
+            <span data-i18n="lens_dim_hydration"></span><b>82%</b>
+          </div>
+          <div class="lensx-mock__chip lensx-mock__chip--b glass">
+            <span data-i18n="lens_dim_redness"></span><b>85%</b>
+          </div>
+          <div class="lensx-mock__score glass">
+            <span class="lensx-mock__score-num" data-countup="78">0</span>
+            <small data-i18n="lens_mock_score_label"></small>
+          </div>
+          <div class="lensx-mock__caption">
+            <span class="lensx-mock__dot" aria-hidden="true"></span>
+            <span data-i18n="lens_mock_caption"></span>
+          </div>
+        </div>
+      </div>
 
-    <div class="lens-page__cta reveal">
-      <p data-i18n="lens_availability"></p>
-      <a class="btn btn--primary" href="/quiz.html" data-i18n="hero_cta_quiz"></a>
     </div>
-  </div>
+  </section>
+
+  <!-- ============ 7 dimensions — animated mint bars + count-ups ============ -->
+  <section class="lensx-dims section--dark section">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow" data-fx="up" data-i18n="lens_dims_label"></p>
+        <h2 data-fx="up" data-fx-delay="80" data-i18n="lens_dims_title"></h2>
+      </div>
+      <div class="lensx-dims__panel glass" data-fx="up" data-fx-delay="120">
+        <div class="lensx-dim">
+          <span class="lensx-dim__name" data-i18n="lens_dim_hydration"></span>
+          <div class="lensx-bar" style="--w:82%"><i></i></div>
+          <span class="lensx-dim__val" data-countup="82" data-countup-suffix="%">0%</span>
+        </div>
+        <div class="lensx-dim">
+          <span class="lensx-dim__name" data-i18n="lens_dim_texture"></span>
+          <div class="lensx-bar" style="--w:74%"><i></i></div>
+          <span class="lensx-dim__val" data-countup="74" data-countup-suffix="%">0%</span>
+        </div>
+        <div class="lensx-dim">
+          <span class="lensx-dim__name" data-i18n="lens_dim_radiance"></span>
+          <div class="lensx-bar" style="--w:80%"><i></i></div>
+          <span class="lensx-dim__val" data-countup="80" data-countup-suffix="%">0%</span>
+        </div>
+        <div class="lensx-dim">
+          <span class="lensx-dim__name" data-i18n="lens_dim_evenness"></span>
+          <div class="lensx-bar" style="--w:68%"><i></i></div>
+          <span class="lensx-dim__val" data-countup="68" data-countup-suffix="%">0%</span>
+        </div>
+        <div class="lensx-dim">
+          <span class="lensx-dim__name" data-i18n="lens_dim_pores"></span>
+          <div class="lensx-bar" style="--w:71%"><i></i></div>
+          <span class="lensx-dim__val" data-countup="71" data-countup-suffix="%">0%</span>
+        </div>
+        <div class="lensx-dim">
+          <span class="lensx-dim__name" data-i18n="lens_dim_redness"></span>
+          <div class="lensx-bar" style="--w:85%"><i></i></div>
+          <span class="lensx-dim__val" data-countup="85" data-countup-suffix="%">0%</span>
+        </div>
+        <div class="lensx-dim">
+          <span class="lensx-dim__name" data-i18n="lens_dim_eye"></span>
+          <div class="lensx-bar" style="--w:66%"><i></i></div>
+          <span class="lensx-dim__val" data-countup="66" data-countup-suffix="%">0%</span>
+        </div>
+        <p class="lensx-dims__note" data-i18n="lens_dims_note"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 3 steps — glass cards ============ -->
+  <section class="lensx-steps section--dark section">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow" data-fx="up" data-i18n="how_eyebrow"></p>
+        <h2 data-fx="up" data-fx-delay="80" data-i18n="lens_how_title"></h2>
+      </div>
+      <div class="lensx-steps__grid">
+        <article class="lensx-step glass" data-tilt data-fx="up" data-fx-delay="0">
+          <span class="lensx-step__num text-iris" aria-hidden="true">01</span>
+          <h3 data-i18n="lens_step_1_title"></h3>
+          <p data-i18n="lens_step_1_body"></p>
+        </article>
+        <article class="lensx-step glass" data-tilt data-fx="up" data-fx-delay="110">
+          <span class="lensx-step__num text-iris" aria-hidden="true">02</span>
+          <h3 data-i18n="lens_step_2_title"></h3>
+          <p data-i18n="lens_step_2_body"></p>
+        </article>
+        <article class="lensx-step glass" data-tilt data-fx="up" data-fx-delay="220">
+          <span class="lensx-step__num text-iris" aria-hidden="true">03</span>
+          <h3 data-i18n="lens_step_3_title"></h3>
+          <p data-i18n="lens_step_3_body"></p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ privacy — mint shield ============ -->
+  <section class="lensx-privacy section--dark section">
+    <img class="lensx-privacy__bg" src="/assets/images/photos/leaves-dark.jpg" loading="lazy" alt="" aria-hidden="true" />
+    <div class="lensx-privacy__overlay" aria-hidden="true"></div>
+    <div class="container lensx-privacy__inner">
+      <span class="lensx-privacy__shield" data-fx="scale" aria-hidden="true">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
+          <path d="M12 3l7 3v5.5c0 4.4-3 8-7 9.5-4-1.5-7-5.1-7-9.5V6l7-3z" stroke="#4AF0B8" stroke-width="1.7" stroke-linejoin="round"/>
+          <path d="M9 12l2.2 2.2L15.5 9.9" stroke="#4AF0B8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+      <p class="eyebrow" data-fx="up" data-fx-delay="60" data-i18n="lens_privacy_eyebrow"></p>
+      <h2 data-fx="up" data-fx-delay="120" data-i18n="lens_privacy_title"></h2>
+      <p class="lensx-privacy__body" data-fx="up" data-fx-delay="180" data-i18n="lens_privacy_body"></p>
+      <p class="lensx-privacy__disclaimer" data-fx="up" data-fx-delay="240" data-i18n="lres_disclaimer_photo"></p>
+    </div>
+  </section>
+
+  <!-- ============ availability + CTA ============ -->
+  <section class="lensx-cta section--dark">
+    <div class="container lensx-cta__inner">
+      <hr class="line-iris" aria-hidden="true" />
+      <p class="lensx-cta__note" data-fx="up" data-i18n="lens_availability"></p>
+      <div data-fx="up" data-fx-delay="90">
+        <a class="btn btn--primary fx-glow-pulse" href="/quiz.html" data-i18n="hero_cta_quiz"></a>
+      </div>
+    </div>
+  </section>
+
 </main>
 
 <div id="site-footer"></div>
 
 <script src="/assets/js/i18n.js"></script>
 <script src="/assets/js/chrome.js"></script>
-<script src="/assets/js/reveal.js"></script>
+<script src="/assets/js/fx.js"></script>
 </body>
 </html>

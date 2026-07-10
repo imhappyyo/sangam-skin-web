@@ -8,7 +8,7 @@
 <link rel="icon" href="/assets/images/favicon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700&family=Inter:wght@400;500;600;700&family=PT+Serif:ital@1&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/tokens.css" />
 <link rel="stylesheet" href="/assets/css/site.css" />
 <link rel="stylesheet" href="/assets/css/result.css" />
@@ -18,38 +18,60 @@
 <div id="site-header" data-active="quiz"></div>
 
 <main class="result">
-  <div class="container result__hero reveal in">
-    <p class="eyebrow" data-i18n="result_eyebrow"></p>
-    <h1 data-i18n="result_title"></h1>
-    <p class="result__count" data-result-count></p>
-  </div>
 
-  <div class="container result__sessions">
-    <section class="result__session">
-      <div class="result__session-head">
-        <span class="badge badge--am" data-i18n="result_am"></span>
+  <!-- ================= celebration hero ================= -->
+  <section class="result-hero section--dark theme-dark">
+    <div class="fx-aurora" aria-hidden="true"></div>
+    <div class="container">
+      <div class="result-hero__inner">
+        <p class="eyebrow" data-fx="up" data-i18n="result_eyebrow"></p>
+        <h1 data-fx="up" data-fx-delay="90" data-i18n="result_title"></h1>
+        <div class="result-hero__num" data-fx="scale" data-fx-delay="180" aria-hidden="true">
+          <span class="text-iris" data-result-total></span>
+        </div>
+        <p class="result__count" data-fx="up" data-fx-delay="260" data-result-count></p>
       </div>
-      <div class="result__list" data-result-am></div>
-    </section>
-    <section class="result__session">
-      <div class="result__session-head">
-        <span class="badge badge--pm" data-i18n="result_pm"></span>
+    </div>
+  </section>
+
+  <!-- ================= AM / PM sessions ================= -->
+  <section class="result-body">
+    <div class="container result__sessions">
+      <section class="result__session result__session--am" data-fx="up">
+        <div class="result__session-head">
+          <span class="result__session-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M19.1 4.9l-1.7 1.7M6.6 17.4l-1.7 1.7"/></svg>
+          </span>
+          <span class="badge badge--am" data-i18n="result_am"></span>
+        </div>
+        <div class="result__list" data-result-am></div>
+      </section>
+
+      <section class="result__session result__session--pm" data-fx="up" data-fx-delay="120">
+        <div class="result__session-head">
+          <span class="result__session-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg>
+          </span>
+          <span class="badge badge--pm" data-i18n="result_pm"></span>
+        </div>
+        <div class="result__list" data-result-pm></div>
+      </section>
+    </div>
+
+    <div class="container">
+      <div class="result__why" data-fx="up">
+        <h3 data-i18n="result_why_title"></h3>
+        <p data-i18n="result_why_body"></p>
       </div>
-      <div class="result__list" data-result-pm></div>
-    </section>
-  </div>
 
-  <div class="container result__why reveal">
-    <h3 data-i18n="result_why_title"></h3>
-    <p data-i18n="result_why_body"></p>
-  </div>
+      <div class="result__ctas" data-fx="up">
+        <a class="btn btn--primary" href="/catalog.html" data-i18n="result_catalog_cta"></a>
+        <a class="btn btn--outline" href="/quiz.html" data-i18n="result_retake"></a>
+      </div>
 
-  <div class="container result__ctas reveal">
-    <a class="btn btn--primary" href="/catalog.html" data-i18n="result_catalog_cta"></a>
-    <a class="btn btn--outline" href="/quiz.html" data-i18n="result_retake"></a>
-  </div>
-
-  <p class="container result__disclaimer" data-i18n="result_disclaimer"></p>
+      <p class="result__disclaimer" data-i18n="result_disclaimer"></p>
+    </div>
+  </section>
 </main>
 
 <div id="site-footer"></div>
@@ -57,8 +79,8 @@
 <script src="/data/products.js"></script>
 <script src="/assets/js/i18n.js"></script>
 <script src="/assets/js/chrome.js"></script>
-<script src="/assets/js/reveal.js"></script>
 <script src="/assets/js/product-card.js"></script>
 <script src="/assets/js/result.js"></script>
+<script src="/assets/js/fx.js"></script>
 </body>
 </html>
