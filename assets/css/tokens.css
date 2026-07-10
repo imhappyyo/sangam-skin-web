@@ -376,6 +376,11 @@ ul { margin: 0; padding: 0; list-style: none; }
 .sangam-fx [data-fx].fx-in {
   opacity: 1;
   transform: none;
+}
+/* clip-path reset ONLY for the clip variant — applying inset(0) to every
+   [data-fx] element clips children that intentionally overhang the box
+   (e.g. the hero's floating glass chips at negative offsets). */
+.sangam-fx [data-fx="clip"].fx-in {
   clip-path: inset(0 0 0 0);
 }
 
