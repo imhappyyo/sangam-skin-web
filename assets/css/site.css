@@ -98,8 +98,11 @@
   display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr;
   gap: 40px; padding: 76px 32px 48px;
 }
-.footer__brand { display: flex; flex-direction: column; gap: 12px; }
-.footer__brand img { filter: brightness(0) invert(1); opacity: 0.92; height: 36px; width: auto; }
+.footer__brand { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
+/* align-self keeps the tree flush with the column's left edge — without it the
+   column's default stretch gives the img a full-width box and the artwork
+   floats centered inside it, visually indented from the wordmark below. */
+.footer__brand img { filter: brightness(0) invert(1); opacity: 0.92; height: 44px; width: auto; align-self: flex-start; }
 .footer__brand span {
   font-family: var(--font-display); font-weight: 600; font-size: 18px;
   letter-spacing: 0.2px; color: #fff;
