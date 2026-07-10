@@ -21,3 +21,10 @@ Attribution below is provided as a courtesy.
 
 Downloaded via the Pexels CDN (`images.pexels.com`, `w=1600`, tinysrgb), then
 resized to a 1600 px longest side with `sips`. Verified 2026-07-09.
+
+## Category tiles (added 2026-07-10)
+
+- **cat-skin.jpg** — Woman with clear glowing skin, beauty portrait — https://www.pexels.com/photo/3762758/ — Pexels License (free commercial use, no attribution required)
+- **cat-hair.jpg** — Long silky brunette hair over shoulder — https://www.pexels.com/photo/8484212/ — Pexels License
+- **cat-lips.jpg** — Natural lips close-up — https://www.pexels.com/photo/8183931/ — Pexels License
+- **cat-lash.jpg** — Eyelashes and brow macro, closed eye — https://www.pexels.com/photo/7479963/ — Pexels License
