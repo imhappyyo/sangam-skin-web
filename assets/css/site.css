@@ -15,17 +15,19 @@
   height: 88px; gap: 32px;
 }
 .header__brand {
-  display: flex; align-items: center; gap: 12px;
+  /* baseline: the tree's base sits on the same line as the wordmark's base */
+  display: flex; align-items: baseline; gap: 14px;
   font-family: var(--font-display); font-weight: 600; font-size: 17px;
   letter-spacing: 0.2px; color: #fff;
   flex-shrink: 0;
 }
 .header__brand em { font-style: normal; color: var(--mint); }
-/* The tree mark's native aspect ratio is ~0.77:1 (taller than wide) — constrain
-   only the height and let width scale naturally so it never gets squashed
-   into a square. Inverted to read on the dark glass bar. */
+/* The SVG's viewBox is cropped tight to the tree artwork (a wide ~1.6:1 mark),
+   so the full height is visible tree — no dead whitespace. Height-only
+   constraint keeps the aspect ratio; baseline flex alignment puts the img's
+   bottom edge on the text baseline. Inverted to read on the dark glass bar. */
 .header__brand img {
-  height: 75px; width: auto;
+  height: 54px; width: auto;
   filter: brightness(0) invert(1);
   opacity: 0.95;
 }
