@@ -28,3 +28,4 @@ resized to a 1600 px longest side with `sips`. Verified 2026-07-09.
 - **cat-hair.jpg** — Long silky brunette hair over shoulder — https://www.pexels.com/photo/8484212/ — Pexels License
 - **cat-lips.jpg** — Natural lips close-up — https://www.pexels.com/photo/8183931/ — Pexels License
 - **cat-lash.jpg** — Eyelashes and brow macro, closed eye — https://www.pexels.com/photo/7479963/ — Pexels License
+- **lab-serum.jpg** — Formulator dropping serum into amber bottle, clean lab — https://www.pexels.com/photo/27271453/ — Pexels License (free commercial use, no attribution required). Replaces lab-science.jpg (removed — dirty work surface).

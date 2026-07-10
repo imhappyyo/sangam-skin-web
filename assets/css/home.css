@@ -257,6 +257,9 @@
   width: 100%;
   aspect-ratio: 4 / 5;
   object-fit: cover;
+  /* bias the crop toward the pipette-and-bottle action in the lower half
+     of lab-serum.jpg, away from the blurred face at the top */
+  object-position: 50% 72%;
   border-radius: calc(var(--radius-xl) - 8px);
 }
 .trust__molecule {
