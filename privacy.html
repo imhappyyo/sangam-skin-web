@@ -38,7 +38,7 @@
   </header>
 
   <h1>Privacy Policy</h1>
-  <p class="updated">Last updated: 10 July 2026</p>
+  <p class="updated">Last updated: 17 July 2026</p>
 
   <div class="callout">
     <p style="margin:0"><strong>The short version.</strong> Sangam Skin does not collect your
@@ -67,17 +67,33 @@
   <p>Deleting the app removes this information from your device.</p>
 
   <h2>Camera and photos</h2>
-  <p>With your permission, Sangam Skin can use your camera or photo library to take skin
-  progress photos and to use the Skin Lens feature. These photos are stored on your device.
-  By default, Skin Lens runs entirely on your device and does not upload any photo.</p>
+  <p>With your permission, Sangam Skin can use your camera or photo library for two features:
+  your skin progress photos, and the Skin Lens cosmetic read (a selfie-based skin score). Any
+  photo you take or choose is stored only on your device, in the app’s private storage, and you
+  can delete it at any time from within the app. Deleting the app also removes them. We have no
+  server, and your photos are never uploaded to us.</p>
+
+  <h2>On-device face check</h2>
+  <p>Before Skin Lens produces a result, the app runs a quick on-device check to confirm a face
+  is actually visible in the photo — a selfie with no face would give a meaningless read. This
+  check uses Google’s ML Kit face-detection library and runs entirely on your device. It is
+  configured for presence detection only, and returns a simple yes/no answer to the question
+  “is a face in the frame?” It does not create a face map, face mesh, facial landmarks, face
+  template, faceprint, or any other biometric identifier, and it does not recognize or identify
+  you. Nothing from this check is stored or transmitted: the photo is examined in memory and then
+  discarded. Skin Lens saves only a numeric result — a score and category ratings — on your
+  device, and never saves the photo itself.</p>
 
   <div class="callout">
-    <p style="margin:0"><strong>Optional cloud analysis.</strong> Skin Lens can optionally use
-    Google’s Gemini vision service for a more detailed reading. This is off unless you choose to
-    enable it by adding your own Google AI key in the app. If you enable it, the selected photo is
-    sent to Google for analysis under
-    <a href="https://ai.google.dev/gemini-api/terms" rel="noopener">Google’s API terms</a>;
-    Sangam Skin never receives or stores that photo on any server of ours.</p>
+    <p style="margin:0"><strong>Optional cloud analysis (off in this version).</strong> Skin Lens
+    is also designed to support an optional cloud reading, using Google’s Gemini service, for a
+    more detailed cosmetic description of the skin. This option is switched off in the current
+    version of the app: there is no setting to turn it on, and no photo is sent anywhere. If a
+    future version enables it, the selected photo would be sent to Google for a text description
+    under <a href="https://ai.google.dev/gemini-api/terms" rel="noopener">Google’s API terms</a>,
+    we would state this clearly in the app, and we would update this policy and our App Store
+    privacy details before that version is released. Sangam Skin has no server of its own and
+    would never receive or store your photo.</p>
   </div>
 
   <h2>Notifications</h2>
