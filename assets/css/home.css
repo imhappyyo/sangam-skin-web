@@ -742,6 +742,12 @@
   box-shadow: 0 20px 48px rgba(10, 15, 13, 0.38);
 }
 .appcta__soon { font-size: 12.5px; font-weight: 500; color: rgba(10, 15, 13, 0.62); }
+.appcta .store-badges { justify-content: center; }
+.appcta__web-link {
+  font-size: 13.5px; font-weight: 600; color: rgba(10, 15, 13, 0.66);
+  text-decoration: underline; text-underline-offset: 3px; transition: color 0.2s ease;
+}
+.appcta__web-link:hover { color: var(--obsidian); }
 
 /* ============================ responsive ============================ */
 @media (max-width: 1080px) {
