@@ -131,7 +131,7 @@
   transform: translateY(-2px); border-color: rgba(255, 255, 255, 0.4);
   box-shadow: 0 10px 26px rgba(0, 0, 0, 0.34);
 }
-.store-badge__glyph { width: 22px; height: 22px; flex: 0 0 auto; }
+.store-badge__glyph { width: 17px; height: 17px; flex: 0 0 auto; }
 .store-badge__text { display: flex; flex-direction: column; gap: 2px; text-align: left; }
 .store-badge__text small { font-size: 9.5px; letter-spacing: 0.4px; opacity: 0.82; text-transform: uppercase; white-space: nowrap; }
 .store-badge__text strong { font-size: 16px; font-weight: 600; letter-spacing: 0.1px; white-space: nowrap; }
