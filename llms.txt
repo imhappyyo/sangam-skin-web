@@ -1,0 +1,24 @@
+# Sangam Skin
+
+> Sangam Skin is an Ayurvedic skincare brand and companion app from Sangam Herbals. It matches people to serums from a range of 118 clinically-formulated Ayurvedic products using a two-minute skin quiz and an AI selfie analysis ("Skin Lens"), and builds a personalised morning/evening routine with an ingredient-safety engine that prevents unsafe combinations (e.g. retinol with acids).
+
+## What it is
+- **Skin Lens**: take a selfie and get a cosmetic "skin score" (0–100) across seven signals — Hydration, Texture, Pores, Radiance, Evenness, Calm (redness) and Under-eye — plus serum matches. Cosmetic guidance only, not a medical diagnosis.
+- **Skin quiz**: a two-minute questionnaire that produces a personalised AM/PM routine.
+- **Catalogue**: 118 Ayurvedic serums across skin, hair, lips and lashes, built on ~50 active ingredients.
+- **Ingredient-safety engine**: checks every routine for conflicting actives so incompatible ingredients are never paired.
+
+## Key facts
+- Made in India under Dr. Praveen Rathi, following classical Ayurvedic preparation.
+- The mobile app (Sangam Skin) is free on iOS and Android.
+- Cosmetic and wellbeing use only — not a medicine, and not a substitute for professional medical advice.
+
+## Links
+- Website: https://skin.sangamherbals.com
+- Skin Lens (AI analysis): https://skin.sangamherbals.com/lens.html
+- Skin quiz: https://skin.sangamherbals.com/quiz.html
+- Catalogue: https://skin.sangamherbals.com/catalog.html
+- Ingredient glossary: https://skin.sangamherbals.com/ingredients.html
+- iOS app: https://apps.apple.com/app/id6791218190
+- Android app: https://play.google.com/store/apps/details?id=com.sangamherbals.skin
+- Parent brand (herbal products): https://sangamherbals.com
