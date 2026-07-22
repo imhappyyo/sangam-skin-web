@@ -8,11 +8,31 @@
   const DEFAULT_LANG = 'en';
   const STORAGE_KEY = 'sangam-skin-web/lang';
 
+  // A ?lang=xx in the URL wins (these are the crawlable per-language URLs the
+  // hreflang tags point at); then the saved choice; then the browser.
+  function urlLang() {
+    try { const p = new URLSearchParams(location.search).get('lang'); return p && SUPPORTED.includes(p) ? p : null; }
+    catch { return null; }
+  }
   function getLang() {
+    const u = urlLang();
+    if (u) return u;
     const saved = localStorage.getItem(STORAGE_KEY);
     if (saved && SUPPORTED.includes(saved)) return saved;
     const nav = (navigator.language || 'en').slice(0, 2);
     return SUPPORTED.includes(nav) ? nav : DEFAULT_LANG;
+  }
+
+  // Keep the canonical + address bar in sync with the active language so each
+  // language has one stable, self-referencing URL (default = no ?lang param).
+  function syncUrl(lang) {
+    const path = location.pathname;
+    const rel = lang === DEFAULT_LANG ? path : path + '?lang=' + lang;
+    const link = document.querySelector('link[rel="canonical"]');
+    if (link) link.setAttribute('href', location.origin + rel);
+    if (location.pathname + location.search !== rel) {
+      try { history.replaceState(history.state, '', rel); } catch (e) {}
+    }
   }
 
   let catalog = {};
@@ -61,6 +81,7 @@
     if (!SUPPORTED.includes(lang)) lang = DEFAULT_LANG;
     currentLang = lang;
     localStorage.setItem(STORAGE_KEY, lang);
+    syncUrl(lang);
     catalog = await loadCatalog(lang);
     applyToDom();
   }
